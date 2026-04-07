@@ -1,0 +1,89 @@
+import { useState, useEffect } from 'react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Button } from './ui/button';
+
+const navItems = ['Home', 'About', 'Services', 'Sectors', 'Team', 'Contact'];
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileOpen(false);
+  };
+
+  return (
+    <>
+      {/* Top bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-primary py-2 px-4">
+        <div className="container flex justify-between items-center text-primary-foreground text-sm font-body">
+          <div className="flex items-center gap-4">
+            <a href="mailto:partners@rbco1976.com" className="flex items-center gap-1 hover:text-gold transition-colors">
+              <Mail className="w-3 h-3" /> partners@rbco1976.com
+            </a>
+          </div>
+          <a href="tel:+914428278300" className="flex items-center gap-1 hover:text-gold transition-colors">
+            <Phone className="w-3 h-3" /> +91 44 2827 8300
+          </a>
+        </div>
+      </div>
+
+      {/* Main nav */}
+      <nav className={`fixed top-8 left-0 right-0 z-40 transition-all duration-500 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-card py-3' : 'bg-transparent py-5'}`}>
+        <div className="container flex items-center justify-between">
+          <div className="flex flex-col cursor-pointer" onClick={() => scrollTo('home')}>
+            <span className="font-heading text-xl font-bold text-primary tracking-wide">R BUPATHY & CO</span>
+            <span className="text-[10px] font-body tracking-[0.3em] text-muted-foreground uppercase">Chartered Accountants</span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className="font-body text-sm font-medium text-foreground/80 gold-underline hover:text-primary transition-colors pb-1"
+              >
+                {item}
+              </button>
+            ))}
+            <Button
+              onClick={() => scrollTo('contact')}
+              className="bg-gradient-gold text-primary-foreground font-body text-sm px-6 hover:shadow-gold transition-all duration-300"
+            >
+              Get in Touch
+            </Button>
+          </div>
+
+          <button className="lg:hidden text-primary" onClick={() => setIsMobileOpen(!isMobileOpen)}>
+            {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`lg:hidden overflow-hidden transition-all duration-500 ${isMobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="container py-4 bg-background/98 backdrop-blur-lg border-t border-border">
+            {navItems.map((item, i) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className="block w-full text-left py-3 font-body text-foreground/80 hover:text-primary transition-colors"
+                style={{ animationDelay: `${i * 0.05}s` }}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Navbar;
