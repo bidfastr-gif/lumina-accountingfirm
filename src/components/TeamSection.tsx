@@ -2,7 +2,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { User } from 'lucide-react';
 
 const partners = [
-  { name: 'CA. R. Bupathy', role: 'Founder Partner' },
+  { name: 'CA. Sabapathy', role: 'Founder Partner' },
   { name: 'CA. V. Thiagarajan', role: 'Senior Partner' },
   { name: 'CA. D. Purushothaman', role: 'Partner' },
   { name: 'CA. T. Sangeeth', role: 'Partner' },

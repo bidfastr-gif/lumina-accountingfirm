@@ -50,7 +50,7 @@ const CTASection = () => {
           <Button
             size="lg"
             className="bg-gradient-gold text-primary-foreground px-12 py-6 text-lg font-body hover:shadow-gold transition-all duration-500 rounded-full group"
-            onClick={() => window.location.href = 'mailto:partners@rbco1976.com'}
+            onClick={() => window.location.href = 'mailto:partners@sabapathy.ca'}
           >
             Get in Touch
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

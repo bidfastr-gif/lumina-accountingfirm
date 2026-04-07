@@ -3,7 +3,7 @@ const Footer = () => (
     <div className="container">
       <div className="grid md:grid-cols-3 gap-10">
         <div>
-          <h3 className="font-heading text-xl font-bold text-primary-foreground">R BUPATHY & CO</h3>
+          <h3 className="font-heading text-xl font-bold text-primary-foreground">SABAPATHY & CO</h3>
           <p className="font-body text-xs tracking-[0.2em] text-primary-foreground/50 uppercase mt-1">Chartered Accountants</p>
           <p className="font-body text-sm text-primary-foreground/60 mt-4 leading-relaxed">
             Established in 1976, providing expert Audit, Assurance, Taxation and Management Consultancy services for over 49 years.
@@ -38,7 +38,7 @@ const Footer = () => (
 
       <div className="mt-10 pt-6 border-t border-primary-foreground/10 text-center">
         <p className="font-body text-xs text-primary-foreground/40">
-          © 2026 R. BUPATHY & CO. All Rights Reserved.
+          © 2026 SABAPATHY & CO. All Rights Reserved.
         </p>
       </div>
     </div>

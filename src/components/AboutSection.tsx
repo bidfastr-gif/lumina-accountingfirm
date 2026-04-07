@@ -37,7 +37,7 @@ const AboutSection = () => {
             <div className="w-16 h-[2px] bg-gradient-gold mb-6" />
             <div className="space-y-4 font-body text-foreground/65 leading-relaxed text-[15px]">
               <p>
-                R.Bupathy & Co, a firm of Chartered Accountants established in 1976 in India, has been carrying on the profession of Audit, Assurance, Management Consultancy and related services for more than 49 years.
+                Sabapathy & Co, a firm of Chartered Accountants established in 1976 in India, has been carrying on the profession of Audit, Assurance, Management Consultancy and related services for more than 49 years.
               </p>
               <p>
                 The firm has developed expertise in Audit, Taxation, Financial Compliance including Foreign Direct Investment, Forensic Services, IT Audits, Due Diligence Reviews and Business Valuation apart from specialised services in Ind AS Transition, Internal Control Framework, and Mergers & Acquisitions.

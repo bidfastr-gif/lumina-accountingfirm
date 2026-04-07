@@ -21,25 +21,11 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-primary py-2 px-4">
-        <div className="container flex justify-between items-center text-primary-foreground text-sm font-body">
-          <div className="flex items-center gap-4">
-            <a href="mailto:partners@rbco1976.com" className="flex items-center gap-1 hover:text-gold transition-colors">
-              <Mail className="w-3 h-3" /> partners@rbco1976.com
-            </a>
-          </div>
-          <a href="tel:+914428278300" className="flex items-center gap-1 hover:text-gold transition-colors">
-            <Phone className="w-3 h-3" /> +91 44 2827 8300
-          </a>
-        </div>
-      </div>
-
       {/* Main nav */}
-      <nav className={`fixed top-8 left-0 right-0 z-40 transition-all duration-500 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-card py-3' : 'bg-transparent py-5'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-card py-3' : 'bg-background/50 backdrop-blur-sm py-5'}`}>
         <div className="container flex items-center justify-between">
           <div className="flex flex-col cursor-pointer" onClick={() => scrollTo('home')}>
-            <span className="font-heading text-xl font-bold text-primary tracking-wide">R BUPATHY & CO</span>
+            <span className="font-heading text-xl font-bold text-primary tracking-wide">SABAPATHY & CO</span>
             <span className="text-[10px] font-body tracking-[0.3em] text-muted-foreground uppercase">Chartered Accountants</span>
           </div>
 
