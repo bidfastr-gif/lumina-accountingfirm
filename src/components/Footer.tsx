@@ -1,44 +1,58 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => (
-  <footer className="bg-primary py-12 border-t border-border">
-    <div className="container">
-      <div className="grid md:grid-cols-3 gap-10">
+  <footer className="bg-primary relative overflow-hidden">
+    {/* Subtle texture */}
+    <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
+
+    <div className="container relative z-10 py-16">
+      <div className="grid md:grid-cols-3 gap-12">
         <div>
-          <h3 className="font-heading text-xl font-bold text-primary-foreground">SABAPATHY & CO</h3>
-          <p className="font-body text-xs tracking-[0.2em] text-primary-foreground/50 uppercase mt-1">Chartered Accountants</p>
-          <p className="font-body text-sm text-primary-foreground/60 mt-4 leading-relaxed">
+          <h3 className="font-heading text-xl font-bold text-primary-foreground tracking-[0.02em]">SABAPATHY & CO</h3>
+          <p className="font-body text-[9px] tracking-[0.3em] text-primary-foreground/35 uppercase mt-1 font-medium">Chartered Accountants</p>
+          <div className="w-8 h-px bg-gold/30 mt-5 mb-5" />
+          <p className="font-body text-[13px] text-primary-foreground/40 leading-[1.8]">
             Established in 1976, providing expert Audit, Assurance, Taxation and Management Consultancy services for over 49 years.
           </p>
         </div>
 
         <div>
-          <h4 className="font-heading text-sm font-semibold text-primary-foreground mb-4">Quick Links</h4>
-          <ul className="space-y-2">
-            {['About Us', 'Our Services', 'Careers', 'Contact Us'].map((link) => (
-              <li key={link}>
-                <button
-                  onClick={() => document.getElementById(link.split(' ')[0].toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                  className="font-body text-sm text-primary-foreground/50 hover:text-gold transition-colors"
+          <h4 className="font-body text-[11px] font-semibold text-primary-foreground/60 mb-5 uppercase tracking-[0.2em]">Quick Links</h4>
+          <ul className="space-y-3">
+            {[
+              { label: 'About Us', path: '/about' },
+              { label: 'Our Services', path: '/services' },
+              { label: 'Careers', path: '/careers' },
+              { label: 'Contact Us', path: '/contact' },
+            ].map((link) => (
+              <li key={link.label}>
+                <Link
+                  to={link.path}
+                  className="font-body text-[13px] text-primary-foreground/35 hover:text-gold transition-colors duration-300"
                 >
-                  {link}
-                </button>
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="font-heading text-sm font-semibold text-primary-foreground mb-4">Offices</h4>
-          <div className="space-y-3 font-body text-sm text-primary-foreground/50">
-            <p><strong className="text-primary-foreground/70">Chennai:</strong> Vibgyor, #139, Dr.MGR Salai, Chennai 600034</p>
-            <p><strong className="text-primary-foreground/70">Bengaluru:</strong> Vidya Bhavan, #31, 4th Floor, Basavanagudi, Bangalore 560004</p>
-            <p><strong className="text-primary-foreground/70">Coimbatore:</strong> New Branch - 2025</p>
+          <h4 className="font-body text-[11px] font-semibold text-primary-foreground/60 mb-5 uppercase tracking-[0.2em]">Offices</h4>
+          <div className="space-y-4 font-body text-[13px] text-primary-foreground/35 leading-relaxed">
+            <p><strong className="text-primary-foreground/55 font-medium">Chennai:</strong> Vibgyor, #139, Dr.MGR Salai, Chennai 600034</p>
+            <p><strong className="text-primary-foreground/55 font-medium">Bengaluru:</strong> Vidya Bhavan, #31, 4th Floor, Basavanagudi, Bangalore 560004</p>
+            <p><strong className="text-primary-foreground/55 font-medium">Coimbatore:</strong> New Branch - 2025</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-10 pt-6 border-t border-primary-foreground/10 text-center">
-        <p className="font-body text-xs text-primary-foreground/40">
+      <div className="mt-14 pt-6 border-t border-primary-foreground/[0.06] flex flex-col md:flex-row justify-between items-center gap-3">
+        <p className="font-body text-[11px] text-primary-foreground/25 tracking-wider">
           © 2026 SABAPATHY & CO. All Rights Reserved.
+        </p>
+        <p className="font-body text-[11px] text-primary-foreground/20 tracking-wider">
+          Chartered Accountants · Est. 1976
         </p>
       </div>
     </div>
