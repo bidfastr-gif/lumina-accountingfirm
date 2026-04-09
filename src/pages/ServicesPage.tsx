@@ -1,32 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { 
-  FileCheck, Search, Monitor, Globe, Briefcase, ArrowRightLeft,
-  Receipt, Heart, Building, BarChart3, Landmark, ClipboardCheck,
-  GitMerge, ShieldCheck, TrendingUp, Users, ArrowRight
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Counter from "@/components/Counter";
+import { servicesData } from "@/data/servicesData";
 
-const allServices = [
-  { icon: FileCheck, name: 'Statutory Audits', desc: 'Comprehensive statutory audit services ensuring compliance with regulatory requirements and financial reporting standards.' },
-  { icon: Search, name: 'Internal Audits', desc: 'Systematic evaluation of internal controls, risk management processes, and governance frameworks.' },
-  { icon: Monitor, name: 'Information Systems Audit', desc: 'Assessment of IT systems, cybersecurity frameworks, and digital infrastructure compliance.' },
-  { icon: Globe, name: 'International Taxation', desc: 'Expert guidance on cross-border tax issues, treaty benefits, and global tax compliance strategies.' },
-  { icon: Briefcase, name: 'Business Tax Advisory', desc: 'Strategic tax planning and advisory services for businesses to optimize tax efficiency and compliance.' },
-  { icon: Receipt, name: 'Indirect Taxation', desc: 'Comprehensive support for GST and other indirect taxes, including advisory, compliance, and litigation.' },
-  { icon: ArrowRightLeft, name: 'Transfer Pricing', desc: 'Detailed transfer pricing documentation, benchmarking, and compliance for related-party transactions.' },
-  { icon: Heart, name: 'Non-Profit Taxation', desc: 'Specialized tax services for NGOs and charitable organizations to maintain tax-exempt status.' },
-  { icon: Building, name: 'Incorporation', desc: 'End-to-end support for company registration, LLP formation, and startup-related statutory filings.' },
-  { icon: GitMerge, name: 'Mergers & Demergers', desc: 'Strategic advisory and compliance support for corporate restructuring, mergers, and acquisitions.' },
-  { icon: Landmark, name: 'FEMA Advisory', desc: 'Expert guidance on foreign exchange regulations, FDI compliance, and outward investment advisory.' },
-  { icon: ShieldCheck, name: 'Compliance Services', desc: 'Holistic regulatory compliance solutions across various corporate and commercial laws.' },
-  { icon: BarChart3, name: 'Valuation Services', desc: 'Precise business and share valuation services for regulatory, financial reporting, and strategic purposes.' },
-  { icon: ClipboardCheck, name: 'Due Diligence', desc: 'In-depth financial and tax due diligence reviews for investment and acquisition decisions.' },
-  { icon: TrendingUp, name: 'Investment Advisory', desc: 'Personalized investment planning and advisory services to achieve long-term financial goals.' },
-  { icon: Users, name: 'Business Consulting', desc: 'Strategic business consulting to drive growth, efficiency, and organizational excellence.' },
-];
+const allServices = servicesData;
 
 const ServicesPage = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -49,41 +29,44 @@ const ServicesPage = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-            {allServices.map((service, i) => (
-              <div
-                key={service.name}
-                className="group relative bg-card rounded-2xl sm:rounded-3xl p-7 sm:p-10 shadow-card border border-border/40 hover:border-gold/30 transition-all duration-500 hover:shadow-2xl flex flex-col items-start text-left animate-in fade-in slide-in-from-bottom-4 hover:-translate-y-2 overflow-hidden"
-                style={{ animationDelay: `${i * 50}ms` }}
-              >
-                {/* Hover Background & Gradient */}
-                <div className="absolute inset-0 bg-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-navy/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10 flex flex-col h-full items-start">
-                  <div className="mb-8 p-3 rounded-xl bg-secondary group-hover:bg-gold transition-all duration-500 shadow-sm">
-                    <service.icon className="w-6 h-6 text-gold group-hover:text-navy transition-all duration-500" />
-                  </div>
+            {allServices.map((service, i) => {
+              const ServiceIcon = service.icon;
+              return (
+                <div
+                  key={service.name}
+                  className="group relative bg-card rounded-2xl sm:rounded-3xl p-7 sm:p-10 shadow-card border border-border/40 hover:border-gold/30 transition-all duration-500 hover:shadow-2xl flex flex-col items-start text-left animate-in fade-in slide-in-from-bottom-4 hover:-translate-y-2 overflow-hidden"
+                  style={{ animationDelay: `${i * 50}ms` }}
+                >
+                  {/* Hover Background & Gradient */}
+                  <div className="absolute inset-0 bg-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-navy/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  <h3 className="font-heading text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">
-                    {service.name}
-                  </h3>
-                  
-                  <p className="font-body text-sm text-foreground/60 group-hover:text-white/80 leading-relaxed mb-10 transition-colors duration-500">
-                    {service.desc}
-                  </p>
-                  
-                  <div className="mt-auto">
-                    <Link 
-                      to="/contact"
-                      className="inline-flex items-center gap-2 px-6 py-2 bg-secondary text-primary font-body font-bold text-[11px] uppercase tracking-widest rounded-xl hover:bg-gold group-hover:bg-gold group-hover:text-navy transition-all duration-300"
-                    >
-                      Learn More
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
+                  <div className="relative z-10 flex flex-col h-full items-start">
+                    <div className="mb-8 p-3 rounded-xl bg-secondary group-hover:bg-gold transition-all duration-500 shadow-sm">
+                      <ServiceIcon className="w-6 h-6 text-gold group-hover:text-navy transition-all duration-500" />
+                    </div>
+                    
+                    <h3 className="font-heading text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">
+                      {service.name}
+                    </h3>
+                    
+                    <p className="font-body text-sm text-foreground/60 group-hover:text-white/80 leading-relaxed mb-10 transition-colors duration-500">
+                      {service.desc}
+                    </p>
+                    
+                    <div className="mt-auto">
+                      <Link 
+                        to={`/services/${service.slug}`}
+                        className="inline-flex items-center gap-2 px-6 py-2 bg-secondary text-primary font-body font-bold text-[11px] uppercase tracking-widest rounded-xl hover:bg-gold group-hover:bg-gold group-hover:text-navy transition-all duration-300"
+                      >
+                        Learn More
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Stats Band */}

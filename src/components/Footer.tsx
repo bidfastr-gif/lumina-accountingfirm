@@ -38,11 +38,24 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-body text-[11px] font-semibold text-primary-foreground/60 mb-5 uppercase tracking-[0.2em]">Offices</h4>
+          <h4 className="font-body text-[11px] font-semibold text-primary-foreground/60 mb-5 uppercase tracking-[0.2em]">Contact Us</h4>
           <div className="space-y-4 font-body text-[13px] text-primary-foreground/35 leading-relaxed">
-            <p><strong className="text-primary-foreground/55 font-medium">Chennai:</strong> Vibgyor, #139, Dr.MGR Salai, Chennai 600034</p>
-            <p><strong className="text-primary-foreground/55 font-medium">Bengaluru:</strong> Vidya Bhavan, #31, 4th Floor, Basavanagudi, Bangalore 560004</p>
-            <p><strong className="text-primary-foreground/55 font-medium">Coimbatore:</strong> New Branch - 2025</p>
+            <div className="space-y-1">
+              <p className="text-primary-foreground/55 font-semibold text-[11px] uppercase tracking-wider">Head Office</p>
+              <p>New No.81, Old no.47, #139, Dr. Radhakrishnan Salai, Mylapore, Chennai - 600 004</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-primary-foreground/55 font-semibold text-[11px] uppercase tracking-wider">Telephone</p>
+              <p>044-35943060 / 47996581</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-primary-foreground/55 font-semibold text-[11px] uppercase tracking-wider">Mobile</p>
+              <p>+91 98400 67587</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-primary-foreground/55 font-semibold text-[11px] uppercase tracking-wider">Email</p>
+              <a href="mailto:sabapathyca@hotmail.com" className="hover:text-gold transition-colors">sabapathyca@hotmail.com</a>
+            </div>
           </div>
         </div>
       </div>

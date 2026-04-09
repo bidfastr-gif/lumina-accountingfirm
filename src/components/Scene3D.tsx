@@ -148,7 +148,7 @@ const GoldParticles = () => {
 /* ── Main Scene ── */
 const Scene3D = () => {
   return (
-    <div className="absolute inset-0 z-0 bg-background/50">
+    <div className="absolute inset-0 z-0 bg-background/50 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 10], fov: 45 }} dpr={[1, 2]}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.8} />
