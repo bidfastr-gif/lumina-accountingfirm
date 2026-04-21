@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export const useScrollAnimation = (threshold = 0.15) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,7 +11,7 @@ export const useScrollAnimation = (threshold = 0.15) => {
           setIsVisible(true);
         }
       },
-      { threshold }
+      { threshold },
     );
 
     if (ref.current) observer.observe(ref.current);

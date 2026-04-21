@@ -1,24 +1,22 @@
-import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
-import SectorsSection from '@/components/SectorsSection';
-import TeamSection from '@/components/TeamSection';
-import OfficeSection from '@/components/OfficeSection';
-import CTASection from '@/components/CTASection';
-import Footer from '@/components/Footer';
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ApproachSection from "@/components/ApproachSection";
+import ServicesSection from "@/components/ServicesSection";
+import SectorsSection from "@/components/SectorsSection";
+import TeamSection from "@/components/TeamSection";
+import OfficeSection from "@/components/OfficeSection";
+import CTASection from "@/components/CTASection";
 
 const Index = () => (
   <div className="min-h-screen">
-    <Navbar />
     <HeroSection />
     <AboutSection />
+    <ApproachSection />
     <ServicesSection />
     <SectorsSection />
     <TeamSection />
     <OfficeSection />
     <CTASection />
-    <Footer />
   </div>
 );
 

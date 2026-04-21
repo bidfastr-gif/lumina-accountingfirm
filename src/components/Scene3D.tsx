@@ -1,48 +1,60 @@
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { Float, Text3D, Center, Environment, ContactShadows, useTexture } from '@react-three/drei';
-import { useRef, useMemo, Suspense } from 'react';
-import * as THREE from 'three';
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import {
+  Float,
+  Text3D,
+  Center,
+  Environment,
+  ContactShadows,
+  useTexture,
+} from "@react-three/drei";
+import { useRef, useMemo, Suspense } from "react";
+import * as THREE from "three";
 
 /* ── Banner Item ── */
-const BannerItem = ({ 
-  url, 
-  position, 
+const BannerItem = ({
+  url,
+  position,
   rotation = [0, 0, 0],
-  scrollOffset
-}: { 
-  url: string; 
-  position: [number, number, number]; 
+  scrollOffset,
+}: {
+  url: string;
+  position: [number, number, number];
   rotation?: [number, number, number];
-  scrollOffset: { current: number }
+  scrollOffset: { current: number };
 }) => {
   const texture = useTexture(url);
   const mesh = useRef<THREE.Mesh>(null);
   const initialY = position[1];
-  
+
   useFrame((state) => {
     if (mesh.current) {
       // Automatic continuous scroll
       const totalHeight = 12; // Adjusted based on grid spacing
       let newY = initialY + scrollOffset.current;
-      
+
       // Infinite scroll wrapping logic
       newY = ((newY + 6) % totalHeight) - 6;
-      
+
       mesh.current.position.y = newY;
-      
+
       // Add a bit of dynamic tilt based on position
-      mesh.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3 + position[0]) * 0.05;
+      mesh.current.rotation.x =
+        Math.sin(state.clock.elapsedTime * 0.3 + position[0]) * 0.05;
     }
   });
 
   return (
     <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.2}>
-      <mesh ref={mesh} position={[position[0], position[1], position[2]]} rotation={rotation}>
+      <mesh
+        ref={mesh}
+        position={[position[0], position[1], position[2]]}
+        rotation={rotation}
+      >
         <planeGeometry args={[3.5, 2.2]} />
-        <meshStandardMaterial 
-          map={texture} 
-          transparent 
-          opacity={0.8} 
+        <meshStandardMaterial
+          map={texture}
+          transparent
+          opacity={0.8}
           side={THREE.DoubleSide}
           metalness={0.1}
           roughness={0.9}
@@ -56,12 +68,12 @@ const BannerItem = ({
 const BannerGrid = () => {
   const scrollOffset = useRef(0);
   const bannerImages = [
-    '/images/banners/banner1.png',
-    '/images/banners/banner2.png',
-    '/images/banners/banner3.png',
-    '/images/banners/banner4.png',
-    '/images/banners/banner5.png',
-    '/images/banners/banner6.png',
+    "/images/banners/banner1.png",
+    "/images/banners/banner2.png",
+    "/images/banners/banner3.png",
+    "/images/banners/banner4.png",
+    "/images/banners/banner5.png",
+    "/images/banners/banner6.png",
   ];
 
   useFrame((state, delta) => {
@@ -81,14 +93,14 @@ const BannerGrid = () => {
         const x = 2.5 + i * spacingX;
         const y = (j - (rows - 1) / 2) * spacingY;
         const z = -2 - i * 1.5; // Depth stagger
-        
+
         const rotY = -0.3 - i * 0.15; // Angled towards the viewer
         const url = bannerImages[(i * rows + j) % bannerImages.length];
-        
-        items.push({ 
-          url, 
-          pos: [x, y, z] as [number, number, number], 
-          rot: [0, rotY, 0] as [number, number, number] 
+
+        items.push({
+          url,
+          pos: [x, y, z] as [number, number, number],
+          rot: [0, rotY, 0] as [number, number, number],
         });
       }
     }
@@ -98,11 +110,11 @@ const BannerGrid = () => {
   return (
     <group position={[0, 0, 0]}>
       {gridItems.map((banner, index) => (
-        <BannerItem 
-          key={index} 
-          url={banner.url} 
-          position={banner.pos} 
-          rotation={banner.rot} 
+        <BannerItem
+          key={index}
+          url={banner.url}
+          position={banner.pos}
+          rotation={banner.rot}
           scrollOffset={scrollOffset}
         />
       ))}
@@ -138,9 +150,20 @@ const GoldParticles = () => {
   return (
     <points ref={ref}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={400} array={positions} itemSize={3} />
+        <bufferAttribute
+          attach="attributes-position"
+          count={400}
+          array={positions}
+          itemSize={3}
+        />
       </bufferGeometry>
-      <pointsMaterial size={0.06} color="#d4a843" transparent opacity={0.3} sizeAttenuation />
+      <pointsMaterial
+        size={0.06}
+        color="#6AA84F"
+        transparent
+        opacity={0.3}
+        sizeAttenuation
+      />
     </points>
   );
 };
@@ -152,13 +175,29 @@ const Scene3D = () => {
       <Canvas camera={{ position: [0, 0, 10], fov: 45 }} dpr={[1, 2]}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.8} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} color="#fff8ee" />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#c9952b" />
+          <spotLight
+            position={[10, 10, 10]}
+            angle={0.15}
+            penumbra={1}
+            intensity={1}
+            color="#ffffff"
+          />
+          <pointLight
+            position={[-10, -10, -10]}
+            intensity={0.5}
+            color="#023E6C"
+          />
 
           <BannerGrid />
           <GoldParticles />
 
-          <ContactShadows position={[0, -5, 0]} opacity={0.05} scale={30} blur={4} far={15} />
+          <ContactShadows
+            position={[0, -5, 0]}
+            opacity={0.05}
+            scale={30}
+            blur={4}
+            far={15}
+          />
         </Suspense>
       </Canvas>
     </div>

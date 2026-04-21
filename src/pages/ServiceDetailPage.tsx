@@ -1,8 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ArrowLeft, CheckCircle2, ArrowRight, Sparkles, Phone } from "lucide-react";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Phone,
+} from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 import { useEffect } from "react";
 import { useModal } from "@/context/ModalContext";
@@ -14,15 +18,11 @@ const ServiceDetailPage = () => {
 
   const service = servicesData.find((s) => s.slug === slug);
 
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+  // Service Icon mapping logic if needed
 
   if (!service) {
     return (
       <div className="min-h-screen pt-20 flex flex-col">
-        <Navbar />
         <div className="flex-1 flex flex-col items-center justify-center px-4">
           <h2 className="font-heading text-2xl font-bold text-primary mb-4 text-center">
             Service Not Found
@@ -36,7 +36,6 @@ const ServiceDetailPage = () => {
             </button>
           </Link>
         </div>
-        <Footer />
       </div>
     );
   }
@@ -44,8 +43,8 @@ const ServiceDetailPage = () => {
   const ServiceIcon = service.icon;
 
   return (
-    <div className="min-h-screen pt-20">
-      <Navbar />
+    <div className="min-h-screen pt-12 sm:pt-16 lg:pt-20">
+
 
       <div className="bg-background">
         {/* Hero Section */}
@@ -55,7 +54,14 @@ const ServiceDetailPage = () => {
             <div className="absolute top-10 right-10 w-72 h-72 bg-gold rounded-full blur-[120px]" />
             <div className="absolute bottom-10 left-10 w-96 h-96 bg-gold/50 rounded-full blur-[150px]" />
           </div>
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)",
+              backgroundSize: "40px 40px",
+            }}
+          />
 
           <div className="container max-w-6xl relative z-10 pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-28">
             <Link
@@ -84,8 +90,9 @@ const ServiceDetailPage = () => {
 
         {/* Main Content */}
         <div className="container max-w-6xl py-16 sm:py-20 lg:py-28" ref={ref}>
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-
+          <div
+            className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
             {/* Overview Section */}
             <section className="mb-16 sm:mb-24">
               <div className="flex items-center gap-3 mb-8">
@@ -96,7 +103,10 @@ const ServiceDetailPage = () => {
               </div>
               <div className="space-y-5 max-w-4xl">
                 {service.overview.map((para, idx) => (
-                  <p key={idx} className="font-body text-foreground/65 leading-relaxed text-base sm:text-lg">
+                  <p
+                    key={idx}
+                    className="font-body text-foreground/65 leading-relaxed text-base sm:text-lg"
+                  >
                     {para}
                   </p>
                 ))}
@@ -185,7 +195,10 @@ const ServiceDetailPage = () => {
                   </h2>
                   <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
                     {service.whyChooseUs.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold/30 transition-all duration-300">
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold/30 transition-all duration-300"
+                      >
                         <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                         <span className="font-body text-sm text-white/80 leading-relaxed">
                           {item}
@@ -204,7 +217,8 @@ const ServiceDetailPage = () => {
                 Ready to Get Started?
               </h2>
               <p className="font-body text-foreground/55 mb-8 max-w-lg mx-auto">
-                Let our experts help you with {service.name.toLowerCase()}. Schedule a consultation today.
+                Let our experts help you with {service.name.toLowerCase()}.
+                Schedule a consultation today.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
@@ -223,12 +237,10 @@ const ServiceDetailPage = () => {
                 </Link>
               </div>
             </section>
-
           </div>
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

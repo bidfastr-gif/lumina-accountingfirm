@@ -38,22 +38,34 @@ const partners = [
 
 const TeamSection = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const [selectedPartner, setSelectedPartner] = useState<(typeof partners)[0] | null>(null);
+  const [selectedPartner, setSelectedPartner] = useState<
+    (typeof partners)[0] | null
+  >(null);
 
   return (
-    <section id="team" className="py-16 sm:py-20 lg:py-36 overflow-hidden relative">
+    <section
+      id="team"
+      className="py-16 sm:py-20 lg:py-36 overflow-hidden relative"
+    >
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/[0.025] blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10" ref={ref}>
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          className={`text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-10 h-px bg-gold/40" />
-            <span className="font-body text-[11px] font-semibold text-gold/80 uppercase tracking-[0.25em]">Leadership</span>
+            <span className="font-body text-[11px] font-semibold text-gold/80 uppercase tracking-[0.25em]">
+              Leadership
+            </span>
             <div className="w-10 h-px bg-gold/40" />
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">Our Partners</h2>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+            Our Partners
+          </h2>
           <p className="font-body text-foreground/45 max-w-lg mx-auto text-[15px] leading-relaxed">
-            A team of seasoned professionals with decades of combined experience driving excellence.
+            A team of seasoned professionals with decades of combined experience
+            driving excellence.
           </p>
         </div>
 
@@ -61,17 +73,23 @@ const TeamSection = () => {
           {partners.map((p, i) => (
             <div
               key={p.name}
-              className={`group card-premium p-6 sm:p-10 text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`group card-premium p-6 sm:p-10 text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 sm:mb-8">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-gold/20 to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                 <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-primary to-navy-light flex items-center justify-center group-hover:from-gold group-hover:to-gold-dark group-hover:shadow-gold transition-all duration-500">
-                  <span className="font-heading text-xl sm:text-2xl font-bold text-primary-foreground">{p.initials}</span>
+                  <span className="font-heading text-xl sm:text-2xl font-bold text-primary-foreground">
+                    {p.initials}
+                  </span>
                 </div>
               </div>
-              <h4 className="font-heading text-lg sm:text-xl font-bold text-primary leading-tight h-14 flex items-center justify-center">{p.name}</h4>
-              <p className="font-body text-[10px] sm:text-[11px] text-gold/70 mt-2 mb-8 uppercase tracking-[0.2em] font-bold min-h-[30px]">{p.role}</p>
+              <h4 className="font-heading text-lg sm:text-xl font-bold text-primary leading-tight h-14 flex items-center justify-center">
+                {p.name}
+              </h4>
+              <p className="font-body text-[10px] sm:text-[11px] text-gold/70 mt-2 mb-8 uppercase tracking-[0.2em] font-bold min-h-[30px]">
+                {p.role}
+              </p>
 
               <button
                 onClick={() => setSelectedPartner(p)}
@@ -86,13 +104,23 @@ const TeamSection = () => {
       </div>
 
       {/* Partner Bio Modal */}
-      <Dialog open={!!selectedPartner} onOpenChange={(open) => !open && setSelectedPartner(null)}>
+      <Dialog
+        open={!!selectedPartner}
+        onOpenChange={(open) => !open && setSelectedPartner(null)}
+      >
         <DialogContent className="w-[95%] sm:max-w-[420px] p-0 overflow-hidden bg-background border-gold/30 shadow-2xl">
           {selectedPartner && (
             <div className="relative">
               {/* Header Decorative Area - Ultra Compact */}
               <div className="h-20 bg-gradient-to-br from-primary via-primary to-navy-light flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '12px 12px' }} />
+                <div
+                  className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)",
+                    backgroundSize: "12px 12px",
+                  }}
+                />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-gold/10 rounded-full blur-[35px]" />
                 <Quote className="absolute right-5 top-5 w-10 h-10 text-white/5 -rotate-12" />
               </div>
@@ -101,7 +129,9 @@ const TeamSection = () => {
               <div className="absolute top-10 left-6">
                 <div className="w-16 h-16 rounded-xl bg-white p-1 shadow-xl">
                   <div className="w-full h-full rounded-lg bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center shadow-inner">
-                    <span className="font-heading text-xl font-bold text-primary">{selectedPartner.initials}</span>
+                    <span className="font-heading text-xl font-bold text-primary">
+                      {selectedPartner.initials}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "@/pages/Index";
 import AboutPage from "@/pages/AboutPage";
+import ActivityPage from "@/pages/ActivityPage";
 import ServicesPage from "@/pages/ServicesPage";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import TeamPage from "@/pages/TeamPage";
@@ -13,7 +14,7 @@ import JobDetailsPage from "@/pages/JobDetailsPage";
 import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/NotFound";
 import { ModalProvider } from "@/context/ModalContext";
-import ConsultationModal from "@/components/ConsultationModal";
+import MainLayout from "@/components/MainLayout";
 
 const queryClient = new QueryClient();
 
@@ -21,22 +22,22 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <ModalProvider>
-        <Toaster />
-        <Sonner />
-        <ConsultationModal />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:slug" element={<ServiceDetailPage />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/careers/:slug" element={<JobDetailsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <MainLayout>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/activity" element={<ActivityPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:slug" element={<ServiceDetailPage />} />
+              <Route path="/team" element={<TeamPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/careers/:slug" element={<JobDetailsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </MainLayout>
         </BrowserRouter>
       </ModalProvider>
     </TooltipProvider>
