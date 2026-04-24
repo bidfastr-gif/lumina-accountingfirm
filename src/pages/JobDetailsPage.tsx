@@ -487,9 +487,14 @@ const JobDetailsPage = () => {
               {/* CTA Section */}
               <div className="pt-8 sm:pt-12 pl-0 sm:pl-11 flex flex-col items-center">
                 <div className="w-full h-[1px] bg-gold/20 mb-12" />
-                <button className="bg-primary hover:bg-gold text-primary-foreground font-body font-bold text-sm px-10 sm:px-16 py-4 sm:py-5 rounded-xl shadow-2xl transition-all duration-500 transform hover:-translate-y-1 hover:shadow-gold uppercase tracking-[0.15em] sm:tracking-[0.2em] w-full sm:w-auto">
-                  Submit Application
-                </button>
+                <a 
+                  href="mailto:sabapathyca@hotmail.com" 
+                  className="w-full sm:w-auto"
+                >
+                  <button className="bg-primary hover:bg-gold text-primary-foreground font-body font-bold text-sm px-10 sm:px-16 py-4 sm:py-5 rounded-xl shadow-2xl transition-all duration-500 transform hover:-translate-y-1 hover:shadow-gold uppercase tracking-[0.15em] sm:tracking-[0.2em] w-full">
+                    Apply Now
+                  </button>
+                </a>
                 <p className="mt-6 text-xs text-muted-foreground font-body">
                   Please keep your updated resume and mark sheets ready for
                   submission.

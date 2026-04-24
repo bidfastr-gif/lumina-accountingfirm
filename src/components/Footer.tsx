@@ -58,10 +58,12 @@ const Footer = () => (
           <div className="space-y-4 font-body text-[13px] text-white/90 leading-relaxed">
             <div className="space-y-1">
               <p className="text-white font-semibold text-[11px] uppercase tracking-wider">
-                Head Office
+                Address
               </p>
               <p className="text-white">
-                New No.81, Old no.47, #139, Dr. Radhakrishnan Salai, Mylapore,
+                FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS,<br />(NEXT TO HOTEL SARAVANA BHAVAN)   <br />
+                Dr. Radhakrishnan Salai, Mylapore,
+                <br />
                 Chennai - 600 004
               </p>
             </div>

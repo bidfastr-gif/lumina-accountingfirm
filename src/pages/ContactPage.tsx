@@ -54,7 +54,7 @@ const ContactPage = () => {
                         Visit Us
                       </h3>
                       <p className="font-body text-sm sm:text-base text-foreground/55 leading-relaxed">
-                        FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS,(NEXT TO HOTEL SARAVANA BHAVAN)   <br />
+                        FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS,<br />(NEXT TO HOTEL SARAVANA BHAVAN)   <br />
                         Dr. Radhakrishnan Salai, Mylapore,
                         <br />
                         Chennai - 600 004
