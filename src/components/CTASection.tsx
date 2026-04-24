@@ -9,7 +9,7 @@ const CTASection = () => {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-20 lg:py-36 relative overflow-hidden bg-background"
+      className="pt-8 sm:pt-12 lg:pt-20 pb-16 sm:pb-20 lg:pb-36 relative overflow-hidden bg-background"
     >
       <div className="container relative z-10" ref={ref}>
         <div

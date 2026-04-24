@@ -14,25 +14,25 @@ const partners = [
     name: "Mr. M. Natanasabapathy",
     role: "Partner, Fellow Chartered Accountant",
     initials: "MN",
-    bio: "Mr. M. Natanasabapathy is a member of the Institute of Chartered Accountants of India (ICAI) since 1990. He has vast experience in consultancy of direct taxes and handling corporate affairs in different areas.Partner of Sabapathy & Co. With over 45 years of experience in the profession, he is a Fellow Member of the Institute of Chartered Accountants of India. His expertise spans Statutory Audits, Corporate Taxation, and Strategic Management Consultancy. He has been a guiding force for numerous corporate houses and has a reputation for high ethical standards and technical excellence in the field of accounting and finance.",
+    bio: "Mr. M. Natanasabapathy is the Founding & Managing Partner of the firm and a Fellow Member of the Institute of Chartered Accountants of India (ICAI) since 1990.With more than 35 years of distinguished experience, he excels in direct tax consultancy, corporate affairs management, statutory audits, corporate taxation, and strategic management advisory services. He has been instrumental in guiding leading corporate entities, consistently demonstrating exemplary ethical standards and technical proficiency in accounting and finance.",
   },
   {
     name: "Mr. R. Subramanian",
     role: "Partner, Fellow Chartered Accountant",
     initials: "RS",
-    bio: "Mr. R. Subramanian is a member of the Institute of Chartered Accountants of India (ICAI) since 1998. He has vast experience in consultancy of direct taxes and handling corporate affairs in different areas.A Fellow Member of the ICAI with over 30 years of extensive experience. He specializes in Indirect Taxation with a focus on GST, International Taxation, and Transfer Pricing. He provides high-level advisory services to multinational corporations and has represented several landmark cases before specialized tax tribunals. His ability to navigate complex regulatory landscapes makes him a key asset for clients with global operations.",
+    bio: "Mr. R. Subramanian is a member of the Institute of Chartered Accountants of India (ICAI) since 1998. As partner of the firm, his professional area of focus includes statutory audits, direct taxation and indirect taxation.",
   },
   {
     name: "Mr. S. Guruprakash",
     role: "Partner, Chartered Accountant",
     initials: "SG",
-    bio: "Mr. S. Guruprakash is a member of the Institute of Chartered Accountants of India (ICAI) since 2021. He has vast experience in consultancy of direct taxes and handling corporate affairs in different areas.An expert in Internal Audits, Risk Assessment, and Business Process Re-engineering. As a Chartered Accountant, he brings a methodical approach to identifying operational bottlenecks and implementing robust internal control frameworks. He has worked extensively with manufacturing and service industries, helping them achieve greater efficiency and compliance with international standards.",
+    bio: "Mr. S. Guruprakash is a Fellow Member of the Institute of Chartered Accountants of India (ICAI) since 2021.He excels in statutory and internal audit assignments, with extensive experience across manufacturing and service industries. Additionally, he specializes in direct and indirect tax litigation matters, tax planning, and transaction advisory services.",
   },
   {
     name: "Mr. N. Sabari Kishore",
     role: "Chartered Accountant",
     initials: "NK",
-    bio: "Mr. N. Sabari Kishore is a member of the Institute of Chartered Accountants of India (ICAI) since 2023. He has vast experience in consultancy of direct taxes and handling corporate affairs in different areas.A dynamic Chartered Accountant specializing in Start-up Advisory, ROC compliances, and Financial Modeling. He is passionate about helping entrepreneurs scale their businesses by providing sound financial foundations and ensuring 100% regulatory compliance. His expertise includes equity fundraising support, due diligence, and tailored management information systems (MIS) for growing enterprises.",
+    bio: "Mr. N. Sabari Kishore is a member of the Institute of Chartered Accountants of India (ICAI) since 2023. He has vast experience in consultancy of direct taxes and handling corporate affairs in different areas. . He specializes in direct and indirect tax litigation. He is passionate about helping entrepreneurs scale their businesses by providing sound financial foundations and ensuring 100% regulatory compliance. ",
   },
 ];
 
@@ -45,7 +45,7 @@ const TeamSection = () => {
   return (
     <section
       id="team"
-      className="py-16 sm:py-20 lg:py-36 overflow-hidden relative"
+      className="pt-8 sm:pt-12 lg:pt-20 pb-8 sm:pb-12 lg:pb-20 overflow-hidden relative"
     >
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/[0.025] blur-[120px] pointer-events-none" />
 

@@ -41,20 +41,16 @@ const servicesData = {
     },
     {
       icon: Monitor,
-      name: "Information Systems Audit",
-      desc: "Assessment of IT systems, cybersecurity frameworks, and digital infrastructure compliance.",
+      name: "Tax Audits",
+      desc: "Comprehensive verification of financial records to ensure compliance with tax laws and accurate reporting.",
     },
   ],
   Taxation: [
-    {
-      icon: Globe,
-      name: "International Taxation",
-      desc: "Expert guidance on cross-border tax issues, treaty benefits, and global tax compliance strategies.",
-    },
+
     {
       icon: Briefcase,
-      name: "Business Tax Advisory",
-      desc: "Strategic tax planning and advisory services for businesses to optimize tax efficiency and compliance.",
+      name: "Direct Taxation",
+      desc: "Strategic tax planning for businesses and individuals, including cross-border transactions, global operations, and treaty compliance.",
     },
     {
       icon: Receipt,
@@ -62,14 +58,9 @@ const servicesData = {
       desc: "Comprehensive support for GST and other indirect taxes, including advisory, compliance, and litigation.",
     },
     {
-      icon: ArrowRightLeft,
-      name: "Transfer Pricing",
-      desc: "Detailed transfer pricing documentation, benchmarking, and compliance for related-party transactions.",
-    },
-    {
-      icon: Heart,
-      name: "Non-Profit Taxation",
-      desc: "Specialized tax services for NGOs and charitable organizations to maintain tax-exempt status.",
+      icon: ShieldCheck,
+      name: "Tax Representation",
+      desc: "Expert representation before tax authorities for assessments, appeals, and dispute resolution.",
     },
   ],
   "Corporate & Legal": [
@@ -93,13 +84,19 @@ const servicesData = {
       name: "Compliance Services",
       desc: "Holistic regulatory compliance solutions across various corporate and commercial laws.",
     },
+    {
+      icon: Users,
+      name: "Start-up Advisory",
+      desc: "End-to-end support for new ventures, from entity selection and registration to regulatory compliance.",
+    },
+    {
+      icon: FileCheck,
+      name: "Secretarial Audits",
+      desc: "Independent verification of compliance with corporate laws and secretarial standards.",
+    },
   ],
   Advisory: [
-    {
-      icon: BarChart3,
-      name: "Valuation Services",
-      desc: "Precise business and share valuation services for regulatory, financial reporting, and strategic purposes.",
-    },
+
     {
       icon: ClipboardCheck,
       name: "Due Diligence",
@@ -125,7 +122,7 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-16 sm:py-20 lg:py-36 overflow-hidden relative"
+      className="pt-16 sm:pt-20 lg:pt-36 pb-8 sm:pb-12 lg:pb-20 overflow-hidden relative"
     >
       {/* Subtle ambient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-gold/[0.02] blur-[150px] pointer-events-none" />

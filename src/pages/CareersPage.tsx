@@ -58,8 +58,8 @@ const CareersPage = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div className="min-h-screen pt-16 lg:pt-20">
-      <div className="bg-background pt-12 sm:pt-16 lg:pt-24 pb-16 sm:pb-24 lg:pb-32">
+    <div className="min-h-screen pt-4 lg:pt-8">
+      <div className="bg-background pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-24 lg:pb-32">
         <div className="container" ref={ref}>
           <div
             className={`text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -121,10 +121,10 @@ const CareersPage = () => {
             <p className="font-body text-foreground/60 mb-8 max-w-xl mx-auto">
               Send us your resume at{" "}
               <a
-                href="mailto:careers@sabapathy.com"
+                href="mailto:sabapathyca@hotmail.com"
                 className="text-gold font-bold hover:underline"
               >
-                careers@sabapathy.com
+                sabapathyca@hotmail.com
               </a>{" "}
               and we'll keep you updated on future opportunities.
             </p>

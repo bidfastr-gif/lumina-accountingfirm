@@ -8,7 +8,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Our Services", path: "/services" },
-  { name: "Our Activity", path: "/activity" },
+
   { name: "Careers", path: "/careers" },
   { name: "Contact Us", path: "/contact" },
 ];
@@ -63,7 +63,7 @@ const Navbar = () => {
               </svg>
             </div>
             <span className={`font-heading text-xl font-bold tracking-tight transition-colors duration-500 ${showScrolledStyle ? "text-primary" : "text-white"}`}>
-              SABAPATHY & CO
+              SABAPATHY & DHANDAPANI
             </span>
           </Link>
 
@@ -75,8 +75,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `relative font-body text-[11px] font-bold px-5 py-2.5 transition-all duration-500 uppercase tracking-widest ${
                     isActive
-                    ? "text-[#6AA84F] after:w-4"
-                    : `${showScrolledStyle ? "text-primary" : "text-white"} hover:text-[#6AA84F] hover:after:w-4`
+                    ? `${showScrolledStyle ? "text-[#6AA84F]" : "text-[#9ADE7B] drop-shadow-[0_0_8px_rgba(154,222,123,0.4)]"} after:w-4`
+                    : `${showScrolledStyle ? "text-primary" : "text-white"} hover:text-[#9ADE7B] hover:drop-shadow-[0_0_8px_rgba(154,222,123,0.4)] hover:after:w-4`
                   } after:content-[''] after:absolute after:bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-[#6AA84F] after:transition-all after:duration-500 ${
                     !isActive ? "after:w-0" : ""
                   }`
@@ -120,8 +120,8 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     `block w-full text-center py-3 px-6 rounded-xl font-body text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
                       isActive
-                        ? "bg-gold/10 text-gold border border-gold/20"
-                        : "text-primary/70 hover:text-primary hover:bg-primary/5"
+                        ? "bg-[#6AA84F]/10 text-[#6AA84F] border border-[#6AA84F]/20"
+                        : "text-primary/70 hover:text-[#6AA84F] hover:bg-[#6AA84F]/5"
                     }`
                   }
                   style={{ animationDelay: `${i * 0.05}s` }}

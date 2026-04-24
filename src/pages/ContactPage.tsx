@@ -54,13 +54,13 @@ const ContactPage = () => {
                         Visit Us
                       </h3>
                       <p className="font-body text-sm sm:text-base text-foreground/55 leading-relaxed">
-                        New No.81, Old no.47, #139, <br />
+                        FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS,(NEXT TO HOTEL SARAVANA BHAVAN)   <br />
                         Dr. Radhakrishnan Salai, Mylapore,
                         <br />
                         Chennai - 600 004
                       </p>
                       <p className="font-body text-[11px] text-gold/60 mt-4 uppercase tracking-widest font-bold">
-                        Open Monday - Friday, 10.00 AM - 6.00 PM
+                        Open Monday - Saturday
                       </p>
                     </div>
                   </div>
@@ -82,7 +82,7 @@ const ContactPage = () => {
                           href="tel:04435943060"
                           className="block font-body text-lg font-bold text-foreground/75 hover:text-gold transition-colors underline-offset-4 hover:underline"
                         >
-                          044-35943060
+                          044-35943060/47996581
                         </a>
                         <a
                           href="tel:+919840067587"

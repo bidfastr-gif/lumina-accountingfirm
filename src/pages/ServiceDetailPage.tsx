@@ -43,7 +43,7 @@ const ServiceDetailPage = () => {
   const ServiceIcon = service.icon;
 
   return (
-    <div className="min-h-screen pt-12 sm:pt-16 lg:pt-20">
+    <div className="min-h-screen pt-4 lg:pt-8">
 
 
       <div className="bg-background">
@@ -63,7 +63,7 @@ const ServiceDetailPage = () => {
             }}
           />
 
-          <div className="container max-w-6xl relative z-10 pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-28">
+          <div className="container max-w-6xl relative z-10 pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-20 lg:pb-28">
             <Link
               to="/services"
               className="inline-flex items-center gap-2 text-sm text-gold/80 hover:text-gold transition-colors mb-8 group font-body"
@@ -95,17 +95,20 @@ const ServiceDetailPage = () => {
           >
             {/* Overview Section */}
             <section className="mb-16 sm:mb-24">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-10 h-[2px] bg-gradient-to-r from-gold to-gold/0" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary">
-                  Overview
+              <div className="flex flex-col mb-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2px] bg-gold" />
+                  <span className="font-body text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Overview</span>
+                </div>
+                <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary">
+                  Service <span className="text-gradient-gold">Overview</span>
                 </h2>
               </div>
               <div className="space-y-5 max-w-4xl">
                 {service.overview.map((para, idx) => (
                   <p
                     key={idx}
-                    className="font-body text-foreground/65 leading-relaxed text-base sm:text-lg"
+                    className="font-body text-foreground/65 leading-relaxed text-base sm:text-lg text-justify"
                   >
                     {para}
                   </p>
@@ -115,10 +118,13 @@ const ServiceDetailPage = () => {
 
             {/* Advantages Section */}
             <section className="mb-16 sm:mb-24">
-              <div className="flex items-center gap-3 mb-10">
-                <span className="w-10 h-[2px] bg-gradient-to-r from-gold to-gold/0" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary">
-                  Key Advantages
+              <div className="flex flex-col mb-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2px] bg-gold" />
+                  <span className="font-body text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Advantages</span>
+                </div>
+                <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary">
+                  Key <span className="text-gradient-gold">Advantages</span>
                 </h2>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -137,7 +143,7 @@ const ServiceDetailPage = () => {
                           {adv.title}
                         </h3>
                       </div>
-                      <p className="font-body text-sm text-foreground/55 leading-relaxed">
+                      <p className="font-body text-sm text-foreground/55 leading-relaxed text-justify">
                         {adv.description}
                       </p>
                     </div>
@@ -147,68 +153,7 @@ const ServiceDetailPage = () => {
             </section>
 
             {/* How We Work Section */}
-            <section className="mb-16 sm:mb-24">
-              <div className="flex items-center gap-3 mb-10">
-                <span className="w-10 h-[2px] bg-gradient-to-r from-gold to-gold/0" />
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary">
-                  How We Work
-                </h2>
-              </div>
-              <div className="relative">
-                {/* Vertical Line - Desktop */}
-                <div className="hidden lg:block absolute left-[27px] top-8 bottom-8 w-[2px] bg-gradient-to-b from-gold/40 via-gold/20 to-transparent" />
 
-                <div className="space-y-6 sm:space-y-8">
-                  {service.process.map((step, idx) => (
-                    <div key={idx} className="flex gap-5 sm:gap-8 group">
-                      <div className="shrink-0 relative z-10">
-                        <div className="w-14 h-14 rounded-2xl bg-primary group-hover:bg-gold flex items-center justify-center transition-all duration-500 shadow-lg group-hover:shadow-gold/30">
-                          <span className="font-heading text-lg font-bold text-white group-hover:text-navy transition-colors duration-500">
-                            {String(step.step).padStart(2, "0")}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex-1 pb-6 sm:pb-8 border-b border-border/20 last:border-0">
-                        <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-2 group-hover:text-gold transition-colors duration-300">
-                          {step.title}
-                        </h3>
-                        <p className="font-body text-sm sm:text-base text-foreground/55 leading-relaxed max-w-3xl">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Why Choose Us Section */}
-            <section className="mb-16 sm:mb-24">
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-primary to-navy-light p-8 sm:p-12 lg:p-16">
-                {/* Decorative */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-[100px]" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-gold/5 rounded-full blur-[80px]" />
-
-                <div className="relative z-10">
-                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-8">
-                    Why Choose <span className="text-gold">Sabapathy & Co</span>
-                  </h2>
-                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-                    {service.whyChooseUs.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold/30 transition-all duration-300"
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-                        <span className="font-body text-sm text-white/80 leading-relaxed">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
 
             {/* CTA Section */}
             <section className="text-center">

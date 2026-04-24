@@ -10,8 +10,8 @@ const ServicesPage = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div className="min-h-screen pt-16 lg:pt-20">
-      <div className="bg-background pt-12 sm:pt-16 lg:pt-24 pb-16 sm:pb-24 lg:pb-32 min-h-screen">
+    <div className="min-h-screen pt-4 lg:pt-8">
+      <div className="bg-background pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-24 lg:pb-32 min-h-screen">
         <div className="container" ref={ref}>
           <div
             className={`text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -51,7 +51,7 @@ const ServicesPage = () => {
                       {service.name}
                     </h3>
 
-                    <p className="font-body text-sm text-foreground/60 group-hover:text-white/80 leading-relaxed mb-10 transition-colors duration-500">
+                    <p className="font-body text-sm text-foreground/60 group-hover:text-white/80 leading-relaxed mb-10 transition-colors duration-500 text-justify">
                       {service.desc}
                     </p>
 
@@ -70,31 +70,7 @@ const ServicesPage = () => {
             })}
           </div>
 
-          {/* Stats Band */}
-          <div className="mt-16 sm:mt-24 lg:mt-32 pt-12 sm:pt-20 border-t border-border/20">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
-              {[
-                { label: "Specialized Services", value: 16, suffix: "" },
-                { label: "Success Rate", value: 98, suffix: "%" },
-                { label: "Client Advisory", value: 500, suffix: "+" },
-                { label: "Expert Support", value: 24, suffix: "/7" },
-              ].map((stat, i) => (
-                <div key={stat.label} className="text-center group">
-                  <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 flex items-center justify-center gap-1">
-                    <Counter
-                      end={stat.value}
-                      trigger={isVisible}
-                      duration={3000}
-                    />
-                    <span className="text-gold">{stat.suffix}</span>
-                  </div>
-                  <div className="font-body text-xs lg:text-sm text-muted-foreground uppercase tracking-widest font-semibold group-hover:text-gold transition-colors duration-300">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

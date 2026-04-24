@@ -37,7 +37,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "Ensuring Compliance, Building Confidence",
     desc: "Comprehensive statutory audit services ensuring compliance with regulatory requirements and financial reporting standards.",
     overview: [
-      "Statutory audits are a legal requirement for businesses to ensure that their financial statements present a true and fair view of their financial position. At Sabapathy & Co, we conduct thorough statutory audits in accordance with the Standards on Auditing issued by ICAI and applicable regulatory frameworks.",
+      "Statutory audits are a legal requirement for businesses to ensure that their financial statements present a true and fair view of their financial position. At Sabapathy & Dhandapani, we conduct thorough statutory audits in accordance with the Standards on Auditing issued by ICAI and applicable regulatory frameworks.",
       "Our team of experienced auditors examines your financial records, internal controls, and accounting policies to provide an independent opinion on the accuracy and reliability of your financial statements. We go beyond mere compliance to deliver actionable insights that strengthen your financial governance.",
       "Whether you are a private limited company, public listed entity, or a statutory body, our audit approach is tailored to your industry, size, and regulatory environment to ensure a seamless and value-driven audit experience.",
     ],
@@ -120,7 +120,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "Strengthening Controls, Driving Efficiency",
     desc: "Systematic evaluation of internal controls, risk management processes, and governance frameworks.",
     overview: [
-      "Internal audits provide an independent and objective assessment of your organization's internal controls, risk management, and governance processes. At Sabapathy & Co, we design internal audit programs that go beyond compliance to add tangible value to your operations.",
+      "Internal audits provide an independent and objective assessment of your organization's internal controls, risk management, and governance processes. At Sabapathy & Dhandapani, we design internal audit programs that go beyond compliance to add tangible value to your operations.",
       "Our risk-based approach helps identify process inefficiencies, control gaps, and operational risks before they escalate into significant issues. We evaluate the effectiveness of your organization's policies and procedures and provide practical recommendations for improvement.",
       "From SOPs and process mapping to fraud risk assessments and operational reviews, our internal audit services are designed to give management and the board the assurance they need to make informed decisions.",
     ],
@@ -196,182 +196,19 @@ export const servicesData: ServiceDetail[] = [
       "Direct access to partners for critical findings",
     ],
   },
+
   {
-    slug: "information-systems-audit",
-    icon: Monitor,
-    name: "Information Systems Audit",
-    tagline: "Securing Digital Infrastructure, Ensuring IT Governance",
-    desc: "Assessment of IT systems, cybersecurity frameworks, and digital infrastructure compliance.",
-    overview: [
-      "In today's digital-first business landscape, the integrity and security of your information systems are paramount. Our IS Audit services provide a comprehensive assessment of your IT infrastructure, data security controls, and system reliability.",
-      "We evaluate your organization's IT governance framework, cybersecurity posture, access controls, disaster recovery plans, and compliance with relevant standards such as ISO 27001, COBIT, and IT Act provisions.",
-      "Our IS Audit team combines deep technical expertise with audit methodology to identify vulnerabilities, assess data integrity risks, and ensure your technology investments are delivering value while maintaining compliance.",
-    ],
-    advantages: [
-      {
-        title: "Cybersecurity Assurance",
-        description:
-          "Comprehensive assessment of your cybersecurity controls, threat detection mechanisms, and incident response capabilities.",
-      },
-      {
-        title: "Data Integrity",
-        description:
-          "Verification of data processing accuracy, completeness, and reliability across critical business applications.",
-      },
-      {
-        title: "Regulatory Compliance",
-        description:
-          "Ensure compliance with IT Act, GDPR, RBI cybersecurity guidelines, and other applicable regulations.",
-      },
-      {
-        title: "Business Continuity",
-        description:
-          "Assessment of disaster recovery and business continuity plans to ensure operational resilience.",
-      },
-      {
-        title: "Access Control Review",
-        description:
-          "Evaluation of user access management, segregation of duties, and privileged access controls.",
-      },
-      {
-        title: "Vendor Risk Assessment",
-        description:
-          "Review of third-party IT vendor contracts, SLAs, and data handling practices for risk mitigation.",
-      },
-    ],
-    process: [
-      {
-        step: 1,
-        title: "IT Environment Assessment",
-        description:
-          "Understanding your IT landscape, technology stack, network architecture, and critical business applications.",
-      },
-      {
-        step: 2,
-        title: "Control Framework Evaluation",
-        description:
-          "Mapping existing IT controls against industry standards and best practices to identify gaps.",
-      },
-      {
-        step: 3,
-        title: "Vulnerability Assessment",
-        description:
-          "Technical testing of systems for security vulnerabilities, configuration weaknesses, and access control issues.",
-      },
-      {
-        step: 4,
-        title: "Data Analytics & Testing",
-        description:
-          "Automated data analytics to verify transaction integrity, detect anomalies, and assess system reliability.",
-      },
-      {
-        step: 5,
-        title: "Reporting & Remediation",
-        description:
-          "Detailed report with risk ratings, prioritized recommendations, and a roadmap for IT control improvement.",
-      },
-    ],
-    whyChooseUs: [
-      "CISA/DISA qualified professionals on every engagement",
-      "Alignment with ISO 27001 and COBIT frameworks",
-      "Combined expertise in audit methodology and IT security",
-      "Practical remediation recommendations, not just findings",
-      "Ongoing advisory support for IT governance improvement",
-    ],
-  },
-  {
-    slug: "international-taxation",
-    icon: Globe,
-    name: "International Taxation",
-    tagline: "Navigating Global Tax Complexities with Confidence",
-    desc: "Expert guidance on cross-border tax issues, treaty benefits, and global tax compliance strategies.",
-    overview: [
-      "Cross-border transactions and global operations bring complex tax challenges that require specialized expertise. Our international taxation services help businesses and individuals navigate the intricacies of multi-jurisdictional tax laws, treaty provisions, and compliance requirements.",
-      "We advise on structuring cross-border transactions, optimizing treaty benefits under India's extensive DTAA network, managing permanent establishment risks, and ensuring compliance with global reporting standards including CRS and FATCA.",
-      "Whether you are expanding internationally, dealing with foreign remittances, or managing expatriate taxation, our team provides strategic guidance to minimize tax exposure while ensuring full compliance with domestic and international tax laws.",
-    ],
-    advantages: [
-      {
-        title: "Treaty Optimization",
-        description:
-          "Strategic use of Double Taxation Avoidance Agreements (DTAAs) to minimize withholding taxes and avoid double taxation.",
-      },
-      {
-        title: "PE Risk Management",
-        description:
-          "Assessment and mitigation of Permanent Establishment risks arising from cross-border business activities.",
-      },
-      {
-        title: "Expatriate Taxation",
-        description:
-          "Comprehensive tax planning and compliance for expatriates including salary structuring, FEMA compliance, and exit taxation.",
-      },
-      {
-        title: "Global Compliance",
-        description:
-          "Compliance with CRS, FATCA, Country-by-Country Reporting (CbCR), and other international reporting requirements.",
-      },
-      {
-        title: "Inbound & Outbound Structuring",
-        description:
-          "Tax-efficient structuring for inbound investments into India and outbound investments by Indian businesses.",
-      },
-      {
-        title: "Dispute Resolution",
-        description:
-          "Representation before tax authorities and assistance with Mutual Agreement Procedures (MAP) for treaty disputes.",
-      },
-    ],
-    process: [
-      {
-        step: 1,
-        title: "Transaction Analysis",
-        description:
-          "Detailed analysis of cross-border transactions, entity structures, and applicable tax jurisdictions.",
-      },
-      {
-        step: 2,
-        title: "Treaty & Law Review",
-        description:
-          "Assessment of applicable DTAAs, domestic tax laws, and international tax provisions relevant to your situation.",
-      },
-      {
-        step: 3,
-        title: "Structure Optimization",
-        description:
-          "Designing tax-efficient structures that comply with GAAR, MLI, and substance requirements.",
-      },
-      {
-        step: 4,
-        title: "Compliance Execution",
-        description:
-          "Preparation and filing of all international tax returns, withholding certificates, and regulatory reports.",
-      },
-      {
-        step: 5,
-        title: "Ongoing Advisory",
-        description:
-          "Continuous monitoring of regulatory changes and proactive advisory on their impact on your global tax position.",
-      },
-    ],
-    whyChooseUs: [
-      "Deep expertise in India's DTAA network and international tax treaties",
-      "Experience handling complex PE and withholding tax matters",
-      "Strong track record in international tax litigation support",
-      "Proactive advisory on global tax reforms (BEPS, Pillar Two)",
-      "Collaborative approach with international tax networks",
-    ],
-  },
-  {
-    slug: "business-tax-advisory",
+    slug: "direct-taxation",
     icon: Briefcase,
-    name: "Business Tax Advisory",
+    name: "Direct Taxation",
     tagline: "Strategic Tax Planning for Sustainable Growth",
     desc: "Strategic tax planning and advisory services for businesses to optimize tax efficiency and compliance.",
     overview: [
-      "Effective tax planning is essential for business profitability and sustainability. Our Business Tax Advisory services help organizations optimize their tax position through strategic planning, regulatory compliance, and proactive advisory on tax-saving opportunities.",
-      "We work closely with businesses across all stages—from startups and SMEs to large corporates—to develop tax strategies aligned with their commercial objectives. Our services cover direct taxation including corporate tax, MAT/AMT planning, capital gains optimization, and tax incentive utilization.",
-      "Our team stays ahead of legislative changes and judicial pronouncements to ensure your tax strategies remain current, compliant, and effective in a rapidly evolving tax landscape.",
+      "Effective tax planning is essential for business profitability and sustainability. Our Direct Taxation services help organizations optimize their tax position through strategic planning, regulatory compliance, and proactive advisory on tax-saving opportunities.",
+      "CROSS-BORDER TRANSACTIONS AND GLOBAL OPERATIONS BRING COMPLEX TAX CHALLENGES THAT REQUIRE SPECIALIZED EXPERTISE. OUR INTERNATIONAL TAXATION SERVICES HELP BUSINESSES AND INDIVIDUALS NAVIGATE THE INTRICACIES OF MULTI-JURISDICTIONAL TAX LAWS, TREATY PROVISIONS, AND COMPLIANCE REQUIREMENTS.",
+      "We advise on corporate tax, MAT/AMT planning, DTAA benefits, permanent establishment risks, and compliance with global reporting standards like CRS and FATCA. Our goal is to minimize tax exposure while ensuring full compliance with both domestic and international tax laws.",
+      "We also provide specialized support for non-profit organizations, including charitable institutions, NGOs, and trusts, specifically focusing on exemption registrations and tax-exempt status certifications.",
+      "Additionally, we specialize in Transfer Pricing, helping businesses comply with Indian and international regulations through robust documentation, benchmarking studies, and defensible arm's length pricing strategies for related-party transactions.",
     ],
     advantages: [
       {
@@ -380,9 +217,19 @@ export const servicesData: ServiceDetail[] = [
           "Strategic planning to minimize tax liability through legitimate deductions, exemptions, and incentive provisions.",
       },
       {
-        title: "Advance Tax Planning",
+        title: "Treaty Optimization",
         description:
-          "Accurate estimation of advance tax liabilities to avoid interest and penalties under Sections 234A/B/C.",
+          "Strategic use of Double Taxation Avoidance Agreements (DTAAs) to minimize withholding taxes and avoid double taxation.",
+      },
+      {
+        title: "Exemption Registration",
+        description:
+          "End-to-end support for fresh and renewal applications under applicable tax-exemption provisions.",
+      },
+      {
+        title: "Transfer Pricing",
+        description:
+          "Comprehensive TP documentation and benchmarking studies compliant with statutory requirements and OECD guidelines.",
       },
       {
         title: "Litigation Support",
@@ -390,9 +237,9 @@ export const servicesData: ServiceDetail[] = [
           "Expert representation before Income Tax authorities in assessments, appeals, and dispute resolution.",
       },
       {
-        title: "Startup Benefits",
+        title: "Global Compliance",
         description:
-          "Advisory on Section 80-IAC benefits, angel tax provisions, and tax holidays available for eligible startups.",
+          "Compliance with global reporting requirements and other international regulatory standards.",
       },
       {
         title: "Corporate Restructuring",
@@ -400,9 +247,9 @@ export const servicesData: ServiceDetail[] = [
           "Tax-efficient planning for mergers, demergers, slump sales, and corporate restructuring transactions.",
       },
       {
-        title: "Compliance Assurance",
+        title: "Inbound & Outbound Structuring",
         description:
-          "Timely filing of returns, tax audits, and statutory forms with zero-error accuracy.",
+          "Tax-efficient structuring for inbound investments into India and outbound investments by Indian businesses.",
       },
     ],
     process: [
@@ -460,7 +307,7 @@ export const servicesData: ServiceDetail[] = [
       {
         title: "GST Compliance",
         description:
-          "End-to-end GST return filing (GSTR-1, 3B, 9, 9C) with ITC reconciliation and compliance health checks.",
+          "End-to-end GST return filing including periodic and annual returns with ITC reconciliation and compliance health checks.",
       },
       {
         title: "ITC Optimization",
@@ -470,7 +317,7 @@ export const servicesData: ServiceDetail[] = [
       {
         title: "Classification Advisory",
         description:
-          "Expert guidance on HSN/SAC classification and applicable GST rates to avoid misclassification risks.",
+          "Expert guidance on commodity and service classification and applicable GST rates to avoid misclassification risks.",
       },
       {
         title: "Refund Management",
@@ -493,7 +340,7 @@ export const servicesData: ServiceDetail[] = [
         step: 1,
         title: "Compliance Setup",
         description:
-          "GST registration, configuration of HSN/SAC codes, and setup of return filing processes and timelines.",
+          "GST registration, configuration of commodity and service codes, and setup of return filing processes and timelines.",
       },
       {
         step: 2,
@@ -505,13 +352,13 @@ export const servicesData: ServiceDetail[] = [
         step: 3,
         title: "Reconciliation & Review",
         description:
-          "Monthly reconciliation of GSTR-2A/2B with purchase registers and identification of ITC mismatches.",
+          "Monthly reconciliation of tax credit statements with purchase registers and identification of ITC mismatches.",
       },
       {
         step: 4,
         title: "Annual Compliance",
         description:
-          "Preparation of annual returns (GSTR-9) and reconciliation statement (GSTR-9C) with detailed analysis.",
+          "Preparation of annual returns and reconciliation statements with detailed analysis.",
       },
       {
         step: 5,
@@ -528,172 +375,8 @@ export const servicesData: ServiceDetail[] = [
       "Dedicated indirect tax specialists for complex queries",
     ],
   },
-  {
-    slug: "transfer-pricing",
-    icon: ArrowRightLeft,
-    name: "Transfer Pricing",
-    tagline: "Arm's Length Pricing, Global Compliance",
-    desc: "Detailed transfer pricing documentation, benchmarking, and compliance for related-party transactions.",
-    overview: [
-      "Transfer pricing regulations require that transactions between related parties are conducted at arm's length prices. Non-compliance can result in significant tax adjustments, penalties, and protracted litigation. Our transfer pricing practice helps businesses comply with Indian and international TP regulations while managing risk.",
-      "We provide comprehensive services including TP documentation, benchmarking studies, Advance Pricing Agreements (APA), and litigation support. Our approach combines rigorous economic analysis with practical commercial understanding to deliver defensible TP positions.",
-      "With the increasing scrutiny on intercompany transactions by tax authorities worldwide, having robust transfer pricing documentation and a well-defined TP policy is no longer optional—it's essential for every business with related-party dealings.",
-    ],
-    advantages: [
-      {
-        title: "Comprehensive Documentation",
-        description:
-          "Detailed TP study reports compliant with Section 92D/92E and OECD Transfer Pricing Guidelines.",
-      },
-      {
-        title: "Benchmarking Analysis",
-        description:
-          "Rigorous economic analysis using multiple databases and methods (CUP, TNMM, RPM, CPM, PSM) for defensible pricing.",
-      },
-      {
-        title: "APA Advisory",
-        description:
-          "Strategic advisory and application support for Unilateral, Bilateral, and Multilateral Advance Pricing Agreements.",
-      },
-      {
-        title: "TP Policy Design",
-        description:
-          "Development of global TP policies aligned with business operations, value chain, and regulatory requirements.",
-      },
-      {
-        title: "Audit Defense",
-        description:
-          "Expert representation during TP assessments, appeals before CIT(A), ITAT, and DRP proceedings.",
-      },
-      {
-        title: "BEPS Compliance",
-        description:
-          "Support with Country-by-Country Reporting (CbCR), Master File, and Local File requirements under BEPS Action 13.",
-      },
-    ],
-    process: [
-      {
-        step: 1,
-        title: "Transaction Mapping",
-        description:
-          "Identification and categorization of all international and specified domestic transactions with associated enterprises.",
-      },
-      {
-        step: 2,
-        title: "Functional Analysis",
-        description:
-          "Detailed FAR (Functions, Assets, Risks) analysis to understand the economic substance of intercompany transactions.",
-      },
-      {
-        step: 3,
-        title: "Method Selection & Benchmarking",
-        description:
-          "Selection of the Most Appropriate Method and comprehensive benchmarking using comparable company data.",
-      },
-      {
-        step: 4,
-        title: "Documentation & Reporting",
-        description:
-          "Preparation of TP documentation including Local File, Master File, and CbCR as applicable.",
-      },
-      {
-        step: 5,
-        title: "Filing & Defense",
-        description:
-          "Timely filing of Form 3CEB and ongoing support for TP assessments and dispute resolution.",
-      },
-    ],
-    whyChooseUs: [
-      "Proven track record in TP litigation and dispute resolution",
-      "Access to multiple commercial databases for benchmarking studies",
-      "Experience across diverse industries and transaction types",
-      "Alignment with OECD guidelines and Indian TP regulations",
-      "Proactive risk assessment and TP policy advisory",
-    ],
-  },
-  {
-    slug: "non-profit-taxation",
-    icon: Heart,
-    name: "Non-Profit Taxation",
-    tagline: "Protecting Your Mission Through Tax Compliance",
-    desc: "Specialized tax services for NGOs and charitable organizations to maintain tax-exempt status.",
-    overview: [
-      "Non-profit organizations operate in a unique regulatory environment with specific tax implications. Our specialized non-profit taxation services help charitable institutions, NGOs, trusts, and Section 8 companies navigate complex tax provisions while maintaining their tax-exempt status.",
-      "We advise on registration under Section 12A/12AB, Form 10A/10AB applications, 80G certification, FCRA compliance, and CSR-related regulatory requirements. Our team ensures that your organization's activities and financial reporting align with the conditions prescribed for tax exemption.",
-      "With the recent changes in trust taxation regulations and increased scrutiny on NGO operations, having expert guidance is critical to protect your exempt status and continue your charitable mission without interruption.",
-    ],
-    advantages: [
-      {
-        title: "Exemption Registration",
-        description:
-          "End-to-end support for fresh and renewal applications under Section 12AB, 80G, and 10(23C) provisions.",
-      },
-      {
-        title: "FCRA Compliance",
-        description:
-          "Advisory on Foreign Contribution Regulation Act compliance including registration, renewals, and annual filings.",
-      },
-      {
-        title: "Trust Taxation",
-        description:
-          "Expert guidance on accumulation provisions, deemed income rules, and application of income requirements.",
-      },
-      {
-        title: "Audit & Compliance",
-        description:
-          "Specialized audit of non-profit financials ensuring compliance with all regulatory and tax requirements.",
-      },
-      {
-        title: "CSR Advisory",
-        description:
-          "Advisory on CSR fund utilization, reporting requirements, and compliance with Companies Act CSR provisions.",
-      },
-      {
-        title: "Assessment Support",
-        description:
-          "Representation before tax authorities for exemption-related assessments, appeals, and scrutiny proceedings.",
-      },
-    ],
-    process: [
-      {
-        step: 1,
-        title: "Status Review",
-        description:
-          "Assessment of your organization's registration status, exemption eligibility, and current compliance position.",
-      },
-      {
-        step: 2,
-        title: "Registration Support",
-        description:
-          "Preparation and filing of applications for 12AB registration, 80G certification, or other applicable exemptions.",
-      },
-      {
-        step: 3,
-        title: "Compliance Management",
-        description:
-          "Ongoing management of annual filings, audit reports, and regulatory submissions to maintain exempt status.",
-      },
-      {
-        step: 4,
-        title: "Income Application Review",
-        description:
-          "Review of fund utilization to ensure compliance with mandatory application of income and accumulation rules.",
-      },
-      {
-        step: 5,
-        title: "Advisory & Reporting",
-        description:
-          "Periodic advisory on regulatory changes and their impact on your organization's tax-exempt status.",
-      },
-    ],
-    whyChooseUs: [
-      "Deep understanding of trust and society taxation provisions",
-      "Experience with FCRA, CSR, and NGO regulatory frameworks",
-      "Strong relationships with relevant regulatory authorities",
-      "Proactive monitoring of changes in non-profit tax laws",
-      "Dedicated team specializing in the social sector",
-    ],
-  },
+
+
   {
     slug: "incorporation",
     icon: Building,
@@ -702,7 +385,7 @@ export const servicesData: ServiceDetail[] = [
     desc: "End-to-end support for company registration, LLP formation, and startup-related statutory filings.",
     overview: [
       "Starting a business involves critical decisions about entity structure, compliance requirements, and regulatory registrations. Our incorporation services provide end-to-end support for setting up your business entity—whether it's a Private Limited Company, LLP, Partnership Firm, or Sole Proprietorship.",
-      "We guide entrepreneurs through the entire process including name reservation, MOA/AOA drafting, director/partner appointments, PAN/TAN applications, GST registration, and opening bank accounts. Our advisory extends to choosing the right entity structure based on your business model, funding plans, and tax considerations.",
+      "We guide entrepreneurs through the entire process including name reservation, drafting of constitutional documents, director/partner appointments, tax registration numbers, GST registration, and opening bank accounts. Our advisory extends to choosing the right entity structure based on your business model, funding plans, and tax considerations.",
       "For startups, we additionally assist with DPIIT recognition, Startup India registration, and advisory on the regulatory benefits and incentives available to eligible startups under various government schemes.",
     ],
     advantages: [
@@ -748,7 +431,7 @@ export const servicesData: ServiceDetail[] = [
         step: 2,
         title: "Name & Structure",
         description:
-          "Name reservation, DIN/DPIN applications, and preparation of incorporation documents.",
+          "Name reservation, director identification number applications, and preparation of incorporation documents.",
       },
       {
         step: 3,
@@ -760,7 +443,7 @@ export const servicesData: ServiceDetail[] = [
         step: 4,
         title: "Statutory Registrations",
         description:
-          "PAN, TAN, GST, Professional Tax, ESIC/EPF registrations and bank account opening assistance.",
+          "Obtaining tax registration numbers, GST, Professional Tax, and other mandatory registrations along with bank account opening assistance.",
       },
       {
         step: 5,
@@ -868,7 +551,7 @@ export const servicesData: ServiceDetail[] = [
     desc: "Expert guidance on foreign exchange regulations, FDI compliance, and outward investment advisory.",
     overview: [
       "The Foreign Exchange Management Act (FEMA) governs all foreign exchange transactions in India and non-compliance can result in severe penalties. Our FEMA advisory practice provides expert guidance to businesses and individuals on cross-border transactions, FDI compliance, and overseas investment regulations.",
-      "We advise on FDI structuring under automatic and approval routes, External Commercial Borrowings (ECB), Overseas Direct Investments (ODI), Liberalized Remittance Scheme (LRS), and compliance with RBI reporting requirements including FC-GPR, FC-TRS, and annual return on foreign assets.",
+      "We advise on FDI structuring under automatic and approval routes, External Commercial Borrowings (ECB), Overseas Direct Investments (ODI), remittance schemes, and compliance with regulatory reporting requirements including foreign investment reports and annual returns on foreign assets.",
       "Whether you are an Indian company receiving foreign investment, an NRI managing assets in India, or an Indian entity investing abroad, our team ensures your transactions comply with FEMA regulations while optimizing the structuring of your cross-border flows.",
     ],
     advantages: [
@@ -900,7 +583,7 @@ export const servicesData: ServiceDetail[] = [
       {
         title: "RBI Reporting",
         description:
-          "Timely filing of all mandatory RBI reports including FC-GPR, FC-TRS, ODI forms, and annual returns.",
+          "Timely filing of all mandatory regulatory reports including foreign investment reports, overseas investment forms, and annual returns.",
       },
     ],
     process: [
@@ -950,7 +633,7 @@ export const servicesData: ServiceDetail[] = [
     tagline: "Comprehensive Regulatory Compliance, Always Current",
     desc: "Holistic regulatory compliance solutions across various corporate and commercial laws.",
     overview: [
-      "Staying compliant with India's complex regulatory framework requires continuous vigilance and expertise across multiple laws. Our compliance services provide a single-window solution for managing your obligations under the Companies Act, LLP Act, labour laws, and other applicable legislations.",
+      "Staying compliant with India's complex regulatory framework requires continuous vigilance and expertise across multiple laws. Our compliance services provide a single-window solution for managing your obligations under the Companies Act, LLP Act, and other applicable legislations.",
       "We offer end-to-end compliance management including annual filings with MCA, maintenance of statutory registers, conducting board and general meetings, filing statutory returns, and managing regulatory correspondence. Our proactive approach ensures you never miss a deadline or face avoidable penalties.",
       "Our compliance calendar system, combined with periodic health checks, ensures that your business operates within the legal framework at all times, allowing you to focus on growth while we handle the regulatory burden.",
     ],
@@ -965,11 +648,7 @@ export const servicesData: ServiceDetail[] = [
         description:
           "Board meeting management, resolution drafting, statutory register maintenance, and corporate governance advisory.",
       },
-      {
-        title: "Labour Law Compliance",
-        description:
-          "Advisory on EPF, ESIC, Professional Tax, Shops & Establishments Act, and new labour code compliance.",
-      },
+
       {
         title: "Compliance Calendar",
         description:
@@ -1026,89 +705,7 @@ export const servicesData: ServiceDetail[] = [
       "Scalable services growing with your business needs",
     ],
   },
-  {
-    slug: "valuation-services",
-    icon: BarChart3,
-    name: "Valuation Services",
-    tagline: "Accurate Valuations, Informed Decisions",
-    desc: "Precise business and share valuation services for regulatory, financial reporting, and strategic purposes.",
-    overview: [
-      "Accurate business valuations are critical for transactions, financial reporting, regulatory compliance, and strategic decision-making. Our valuation practice provides independent and defensible valuation opinions using globally accepted methodologies tailored to Indian regulatory requirements.",
-      "We perform valuations for various purposes including M&A transactions, share issuances under Companies Act and FEMA, tax compliance (Section 56(2)(x)), employee stock option plans, purchase price allocation, impairment testing, and dispute resolution before courts and tribunals.",
-      "Our Registered Valuers combine deep financial expertise with industry knowledge to deliver valuation reports that withstand regulatory scrutiny and provide meaningful insights for decision-making.",
-    ],
-    advantages: [
-      {
-        title: "Regulatory Compliance",
-        description:
-          "Valuations compliant with Companies Act, FEMA pricing guidelines, Income Tax Act, and SEBI regulations.",
-      },
-      {
-        title: "Multiple Methodologies",
-        description:
-          "Application of DCF, comparable company analysis, net asset value, and other appropriate methods for robust valuations.",
-      },
-      {
-        title: "Registered Valuers",
-        description:
-          "Reports issued by IBBI Registered Valuers ensuring regulatory acceptance and professional credibility.",
-      },
-      {
-        title: "Litigation Support",
-        description:
-          "Defensible valuation opinions for tax disputes, shareholder conflicts, and arbitration proceedings.",
-      },
-      {
-        title: "Transaction Support",
-        description:
-          "Fair value opinions, swap ratio determination, and purchase price allocation for M&A transactions.",
-      },
-      {
-        title: "ESOP Valuation",
-        description:
-          "Grant-date and fair value assessment of employee stock options for accounting and tax purposes.",
-      },
-    ],
-    process: [
-      {
-        step: 1,
-        title: "Engagement & Scoping",
-        description:
-          "Understanding the purpose of valuation, applicable regulations, and specific requirements for the assignment.",
-      },
-      {
-        step: 2,
-        title: "Data Collection",
-        description:
-          "Gathering financial statements, projections, industry data, and other information required for the valuation.",
-      },
-      {
-        step: 3,
-        title: "Analysis & Methodology",
-        description:
-          "Selection and application of appropriate valuation methodologies with detailed assumptions and calculations.",
-      },
-      {
-        step: 4,
-        title: "Quality Review",
-        description:
-          "Multi-level review of the valuation by senior professionals to ensure accuracy and defensibility.",
-      },
-      {
-        step: 5,
-        title: "Report Delivery",
-        description:
-          "Issuance of a comprehensive valuation report with clear conclusions, assumptions, and supporting analysis.",
-      },
-    ],
-    whyChooseUs: [
-      "IBBI Registered Valuers with extensive experience",
-      "Multi-methodology approach for robust conclusions",
-      "Track record of regulatory acceptance of our reports",
-      "Industry expertise across manufacturing, technology, and services",
-      "Quick turnaround without compromising quality",
-    ],
-  },
+
   {
     slug: "due-diligence",
     icon: ClipboardCheck,
@@ -1285,6 +882,7 @@ export const servicesData: ServiceDetail[] = [
       "In today's competitive business environment, organizations need strategic guidance to navigate complex challenges, seize growth opportunities, and achieve operational excellence. Our business consulting services provide the insights and frameworks needed to transform your business and achieve sustainable success.",
       "We work with businesses across growth stages to address challenges in strategy formulation, operational efficiency, financial management, market expansion, and organization design. Our consulting approach is grounded in data-driven analysis and practical experience.",
       "From business plan development and financial modelling to process reengineering and performance management, our consultants bring a blend of strategic vision and execution capability to help your business achieve its full potential.",
+      "Our consulting practice also includes IBBI Registered Valuation services, providing precise business and share valuations for regulatory compliance, mergers and acquisitions, and strategic purposes.",
     ],
     advantages: [
       {
@@ -1311,6 +909,11 @@ export const servicesData: ServiceDetail[] = [
         title: "Performance Management",
         description:
           "Design and implementation of KPI frameworks, balanced scorecards, and performance dashboards.",
+      },
+      {
+        title: "Valuation Services",
+        description:
+          "Business and share valuations by Registered Valuers for corporate law, exchange control, tax, and M&A purposes.",
       },
       {
         title: "Business Transformation",

@@ -26,7 +26,7 @@ const OfficeSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="offices" className="py-16 sm:py-20 lg:py-36 bg-background relative overflow-hidden">
+    <section id="offices" className="pt-8 sm:pt-12 lg:pt-20 pb-8 sm:pb-12 lg:pb-20 bg-background relative overflow-hidden">
       <div className="container relative z-10" ref={ref}>
         {/* Centered Header */}
         <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>

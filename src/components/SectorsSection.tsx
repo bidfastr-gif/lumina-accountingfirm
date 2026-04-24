@@ -65,7 +65,7 @@ const SectorsSection = () => {
   return (
     <section
       id="sectors"
-      className="py-16 sm:py-20 lg:py-40 bg-background relative overflow-hidden"
+      className="pt-8 sm:pt-12 lg:pt-20 pb-8 sm:pb-12 lg:pb-20 bg-background relative overflow-hidden"
     >
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none select-none overflow-hidden opacity-20">

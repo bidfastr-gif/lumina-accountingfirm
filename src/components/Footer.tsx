@@ -15,7 +15,7 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-12">
         <div>
           <h3 className="font-heading text-xl font-bold text-white tracking-[0.02em]">
-            SABAPATHY & CO
+            SABAPATHY & DHANDAPANI
           </h3>
           <p className="font-body text-[9px] tracking-[0.3em] text-white uppercase mt-1 font-medium">
             Chartered Accountants
@@ -35,7 +35,7 @@ const Footer = () => (
             {[
               { label: "About Us", path: "/about" },
               { label: "Our Services", path: "/services" },
-              { label: "Our Activity", path: "/activity" },
+
               { label: "Careers", path: "/careers" },
               { label: "Contact Us", path: "/contact" },
             ].map((link) => (
@@ -94,7 +94,7 @@ const Footer = () => (
 
       <div className="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3">
         <p className="font-body text-[11px] text-white/60 tracking-wider">
-          © 2026 SABAPATHY & CO. All Rights Reserved.
+          © 2026 SABAPATHY & DHANDAPANI. All Rights Reserved.
         </p>
         <p className="font-body text-[11px] text-white/60 tracking-wider">
           Chartered Accountants · Global Standards

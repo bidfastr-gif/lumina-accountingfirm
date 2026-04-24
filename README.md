@@ -1,6 +1,6 @@
-# SABAPATHY & CO | Chartered Accountants
+# SABAPATHY & DHANDAPANI | Chartered Accountants
 
-Professional website for Sabapathy & Co, established in 1976. Providing expert Audit, Assurance, Taxation, and Management Consultancy services.
+Professional website for Sabapathy & Dhandapani, established in 1996. Providing expert Audit, Assurance, Taxation, and Management Consultancy services.
 
 ## Tech Stack
 

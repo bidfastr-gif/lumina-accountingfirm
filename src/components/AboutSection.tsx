@@ -14,26 +14,26 @@ import Counter from "./Counter";
 const stats = [
   {
     icon: Calendar,
-    value: "49+",
-    label: "Years of Excellence",
+    value: "25+",
+    label: "Years of Expertise",
     color: "from-gold to-gold-light",
   },
   {
     icon: Users,
-    value: "9",
-    label: "Expert Partners",
+    value: "25+",
+    label: "Expert Team",
     color: "from-navy to-navy-light",
   },
   {
     icon: Building2,
-    value: "3",
-    label: "Office Locations",
+    value: "Chennai",
+    label: "Central Hub",
     color: "from-gold to-gold-light",
   },
   {
     icon: Award,
-    value: "4th",
-    label: "Peer Review Cert.",
+    value: "ICAI",
+    label: "Peer Reviewed",
     color: "from-navy to-navy-light",
   },
 ];
@@ -54,7 +54,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="pt-16 sm:pt-20 lg:pt-36 pb-8 sm:pb-12 lg:pb-12 overflow-hidden relative"
+      className="pt-8 sm:pt-12 lg:pt-20 pb-8 sm:pb-12 lg:pb-12 overflow-hidden relative"
     >
       {/* Premium ambient blurs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gold/[0.03] blur-[140px] pointer-events-none" />
@@ -73,40 +73,43 @@ const AboutSection = () => {
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mt-2 mb-6 sm:mb-8 leading-[1.15]">
               A Legacy of Trust <br />
-              <span className="text-gradient-gold">Since 1976</span>
+              <span className="text-gradient-gold">Since 1996</span>
             </h2>
             <div className="space-y-4 font-body text-foreground/55 leading-[1.75] sm:leading-[1.85] text-sm sm:text-[15px]">
               <p>
-                Sabapathy & Co, a firm of Chartered Accountants established in
-                1976 in India, has been carrying on the profession of Audit,
-                Assurance, Management Consultancy and related services for more
-                than 49 years.
+                Sabapathy & Dhandapani is a consulting and audit firm providing
+                end-to-end financial and accounting solutions to businesses and
+                individuals. Established in 1996, the firm brings over 25 years
+                of professional expertise.
               </p>
               <p>
-                The firm has developed expertise in Audit, Taxation, Financial
-                Compliance including Foreign Direct Investment, Forensic
-                Services, IT Audits, Due Diligence Reviews and Business
-                Valuation apart from specialised services in Ind AS Transition,
-                Internal Control Framework, and Mergers & Acquisitions.
+                Our offerings span audit and assurance, tax advisory, financial
+                reporting, regulatory compliance, and strategic business
+                consulting. Backed by a team of experienced professionals, we
+                support clients in improving transparency, optimizing tax
+                positions, ensuring statutory compliance, and strengthening
+                operational efficiency.
               </p>
               <p>
-                Headquartered in Chennai with branch offices in Bengaluru and
-                Coimbatore, supported by 9 Partners, Chartered Accountants, and
-                dedicated staff.
+                Our goal is to serve as a reliable partner, fostering
+                sustainable growth and strong corporate governance for every
+                client.
               </p>
+              <ul className="space-y-3 mt-6">
+                {[
+                  "With our central hub in Chennai and an expanding footprint across multiple cities, our strength lies in our talented team of 25+ experts",
+                  "Our firm is peer-reviewed by the Institute of Chartered Accountants of India, affirming our high quality and adherence to professional and ethical standards.",
+                  "Our firm is also empanelled with the C&AG.",
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-3 items-start">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#6AA84F] shrink-0 mt-2" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <Link
-              to="/about"
-              className="mt-10 inline-flex items-center gap-3 group"
-            >
-              <span className="font-body text-[12px] font-semibold text-primary uppercase tracking-[0.15em] group-hover:text-gold transition-colors duration-300">
-                Read More
-              </span>
-              <div className="w-8 h-8 rounded-full bg-primary group-hover:bg-gold flex items-center justify-center transition-all duration-300">
-                <ArrowRight className="w-3.5 h-3.5 text-primary-foreground" />
-              </div>
-            </Link>
+
           </div>
 
           <div
@@ -129,13 +132,21 @@ const AboutSection = () => {
                     >
                       <stat.icon className="w-5.5 h-5.5 text-primary-foreground" />
                     </div>
-                    <div className="font-heading text-3xl font-bold text-primary flex items-center justify-center gap-0.5">
-                      <Counter
-                        end={numericValue}
-                        trigger={isVisible}
-                        duration={2000}
-                      />
-                      <span>{suffix}</span>
+                    <div className="font-body text-3xl font-extrabold text-primary flex items-center justify-center tracking-tight">
+                      {/\d/.test(stat.value) ? (
+                        <>
+                          <Counter
+                            end={parseInt(stat.value.replace(/\D/g, "")) || 0}
+                            trigger={isVisible}
+                            duration={2000}
+                          />
+                          <span>{stat.value.replace(/\d/g, "")}</span>
+                        </>
+                      ) : (
+                        <span className="text-lg sm:text-xl font-bold tracking-tight">
+                          {stat.value}
+                        </span>
+                      )}
                     </div>
                     <div className="font-body text-[10px] text-muted-foreground mt-2 uppercase tracking-[0.15em] font-medium">
                       {stat.label}
