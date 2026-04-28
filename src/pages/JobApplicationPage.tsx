@@ -12,7 +12,8 @@ import {
   Globe, 
   GraduationCap, 
   Briefcase,
-  CheckCircle2
+  CheckCircle2,
+  X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +26,7 @@ const JobApplicationPage = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   // Format slug to title (e.g., accounts-assistant -> Accounts Assistant)
   const jobTitle = slug 
@@ -35,6 +37,12 @@ const JobApplicationPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    if (!selectedFile) {
+      toast.error("Please upload your resume.");
+      setIsSubmitting(false);
+      return;
+    }
+
     const formData = new FormData(e.currentTarget);
     
     try {
@@ -58,7 +66,12 @@ const JobApplicationPage = () => {
         }, 5000);
       } else {
         console.error("Formspree Error:", result);
-        toast.error(result.error || "Failed to submit application. Please try again.");
+        // Special message for 400 errors (likely unverified)
+        if (response.status === 400) {
+          toast.error("Form activation required. Please check your email or verify the formspree account.");
+        } else {
+          toast.error(result.error || "Failed to submit application. Please try again.");
+        }
       }
     } catch (error) {
       console.error("Submission Error:", error);
@@ -220,11 +233,37 @@ const JobApplicationPage = () => {
                   <p className="font-body text-sm text-foreground/50">PDF, DOCX or RTF (Max size 5MB)</p>
                 </div>
                 <div className="relative">
-                  <input name="resume" required type="file" className="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.rtf" />
-                  <Button variant="outline" type="button" className="h-12 px-8 rounded-xl border-gold/30 text-gold hover:bg-gold hover:text-white transition-all duration-300">
-                    Select File
+                  <input 
+                    name="resume" 
+                    required 
+                    type="file" 
+                    className="absolute inset-0 opacity-0 cursor-pointer z-20" 
+                    accept=".pdf,.doc,.docx,.rtf" 
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        setSelectedFile(e.target.files[0]);
+                      }
+                    }}
+                  />
+                  <Button variant="outline" type="button" className="h-12 px-8 rounded-xl border-gold/30 text-gold hover:bg-gold hover:text-white transition-all duration-300 relative z-10">
+                    {selectedFile ? "Change File" : "Select File"}
                   </Button>
                 </div>
+                {selectedFile && (
+                  <div className="flex items-center gap-2 px-4 py-2 bg-gold/5 rounded-lg border border-gold/20 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <CheckCircle2 className="w-3 h-3 text-gold" />
+                    <span className="font-body text-xs font-medium text-primary truncate max-w-[200px]">
+                      {selectedFile.name}
+                    </span>
+                    <button 
+                      type="button" 
+                      onClick={() => setSelectedFile(null)}
+                      className="ml-2 text-foreground/40 hover:text-red-500 transition-colors"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                )}
               </div>
             </section>
 
