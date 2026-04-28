@@ -111,7 +111,7 @@ const JobApplicationPage = () => {
           <iframe name="hidden_iframe" id="hidden_iframe" style={{ display: "none" }}></iframe>
 
           <form 
-            action="https://getform.io/f/hpto4k23wdh"
+            action="https://app.forminit.com/f/hpto4k23wdh"
             method="POST"
             target="hidden_iframe"
             encType="multipart/form-data"
