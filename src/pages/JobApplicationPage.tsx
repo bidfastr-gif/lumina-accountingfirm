@@ -45,13 +45,20 @@ const JobApplicationPage = () => {
     : "Job Opening";
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // The widget handles the upload, we just need to submit the form to the iframe
+    const form = e.currentTarget;
+    const linkInput = form.querySelector('input[name="resume_link"]') as HTMLInputElement;
+    
+    if (!linkInput || !linkInput.value) {
+      e.preventDefault();
+      toast.error("Please upload your resume before submitting.");
+      return;
+    }
+
     setIsSubmitting(true);
     
-    // The link will be in the 'resume_link' hidden input created by the widget
-    const form = e.currentTarget;
+    // The form will submit to the hidden iframe automatically because of the 'target' attribute
     
-    // Show success UI after a short delay
+    // Show success UI after a short delay to allow Formspree to process
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
