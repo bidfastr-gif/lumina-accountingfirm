@@ -1,5 +1,4 @@
-import OfficeSection from "@/components/OfficeSection";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
 import {
   Send,
   Phone,
@@ -8,11 +7,47 @@ import {
   MapPin,
   Smartphone,
   ChevronDown,
+  CheckCircle2,
 } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
+import { toast } from "sonner";
 
 const ContactPage = () => {
   const { ref, isVisible } = useScrollAnimation(0.05);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xbdqvwpl", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast.success("Message sent successfully!");
+      } else {
+        console.error("Formspree Error:", result);
+        toast.error(result.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen pt-12 sm:pt-16 lg:pt-20">
@@ -136,106 +171,126 @@ const ContactPage = () => {
                     Submit Your <span className="text-gold">Query</span>
                   </h2>
 
-                  <form 
-                    action="https://formspree.io/f/xbdqvwpl" 
-                    method="POST"
-                    className="space-y-6"
-                  >
-                    {/* Name & Email Row */}
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
-                          Your Name
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          className="w-full px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
-                          placeholder="Full Name"
-                        />
+                  {isSubmitted ? (
+                    <div className="flex flex-col items-center justify-center text-center py-12 animate-in fade-in zoom-in duration-500">
+                      <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+                        <CheckCircle2 className="w-10 h-10 text-gold" />
                       </div>
-                      <div className="space-y-2">
-                        <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
-                          placeholder="your.email@example.com"
-                        />
-                      </div>
+                      <h3 className="font-heading text-2xl font-bold text-primary mb-4">
+                        Thank You!
+                      </h3>
+                      <p className="font-body text-foreground/60 leading-relaxed max-w-xs mx-auto">
+                        Your message has been received. Our team will get back to you shortly.
+                      </p>
+                      <button 
+                        onClick={() => setIsSubmitted(false)}
+                        className="mt-8 font-body text-xs font-bold text-gold uppercase tracking-widest hover:text-primary transition-colors"
+                      >
+                        Send another message
+                      </button>
                     </div>
-
-                    {/* Phone & Query Type Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
-                      <div className="space-y-2">
-                        <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
-                          Phone Number
-                        </label>
-                        <div className="flex gap-3">
-                          <select 
-                            name="countryCode"
-                            className="w-20 sm:w-24 px-2 sm:px-3 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-[12px] sm:text-sm text-foreground/75 cursor-pointer appearance-none"
-                          >
-                            <option>+91</option>
-                            <option>+1</option>
-                            <option>+44</option>
-                          </select>
+                  ) : (
+                    <form 
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
+                    >
+                      {/* Name & Email Row */}
+                      <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
+                            Your Name
+                          </label>
                           <input
-                            type="tel"
-                            name="phone"
-                            className="flex-1 min-w-0 px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
-                            placeholder="Phone Num"
+                            type="text"
+                            name="name"
+                            required
+                            className="w-full px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
+                            placeholder="Full Name"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
+                            Email Address
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            required
+                            className="w-full px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
+                            placeholder="your.email@example.com"
                           />
                         </div>
                       </div>
-                      <div className="space-y-2">
-                        <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
-                          Query Category
-                        </label>
-                        <div className="relative">
-                          <select 
-                            name="category"
-                            className="w-full px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-sm text-foreground/75 cursor-pointer appearance-none"
-                          >
-                            <option value="">Choose Category</option>
-                            {servicesData.map((service) => (
-                              <option key={service.slug} value={service.name}>
-                                {service.name}
-                              </option>
-                            ))}
-                            <option value="other">General Inquiry</option>
-                          </select>
-                          <ChevronDown className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 w-4 h-4 text-gold pointer-events-none" />
+
+                      {/* Phone & Query Type Row */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+                        <div className="space-y-2">
+                          <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
+                            Phone Number
+                          </label>
+                          <div className="flex gap-3">
+                            <select 
+                              name="countryCode"
+                              className="w-20 sm:w-24 px-2 sm:px-3 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-[12px] sm:text-sm text-foreground/75 cursor-pointer appearance-none"
+                            >
+                              <option>+91</option>
+                              <option>+1</option>
+                              <option>+44</option>
+                            </select>
+                            <input
+                              type="tel"
+                              name="phone"
+                              className="flex-1 min-w-0 px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
+                              placeholder="Phone Num"
+                            />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
+                            Query Category
+                          </label>
+                          <div className="relative">
+                            <select 
+                              name="category"
+                              className="w-full px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-sm text-foreground/75 cursor-pointer appearance-none"
+                            >
+                              <option value="">Choose Category</option>
+                              {servicesData.map((service) => (
+                                <option key={service.slug} value={service.name}>
+                                  {service.name}
+                                </option>
+                              ))}
+                              <option value="other">General Inquiry</option>
+                            </select>
+                            <ChevronDown className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 w-4 h-4 text-gold pointer-events-none" />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="space-y-2">
-                      <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
-                        Your Query
-                      </label>
-                      <textarea
-                        name="query"
-                        className="w-full px-6 py-5 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20 min-h-[160px] resize-none"
-                        placeholder="Write your query here..."
-                      />
-                    </div>
+                      <div className="space-y-2">
+                        <label className="font-body text-[11px] font-bold text-primary/60 uppercase tracking-widest ml-1">
+                          Your Query
+                        </label>
+                        <textarea
+                          name="query"
+                          className="w-full px-6 py-5 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20 min-h-[160px] resize-none"
+                          placeholder="Write your query here..."
+                        />
+                      </div>
 
-                    <button 
-                      type="submit"
-                      className="w-full group relative py-5 bg-primary overflow-hidden rounded-xl shadow-2xl transition-all duration-500 hover:shadow-gold/30 mt-4"
-                    >
-                      <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                      <span className="relative z-10 flex items-center justify-center gap-3 font-body font-bold text-sm uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors duration-500">
-                        Submit Query
-                        <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                      </span>
-                    </button>
-                  </form>
+                      <button 
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full group relative py-5 bg-primary overflow-hidden rounded-xl shadow-2xl transition-all duration-500 hover:shadow-gold/30 mt-4 disabled:opacity-70"
+                      >
+                        <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                        <span className="relative z-10 flex items-center justify-center gap-3 font-body font-bold text-sm uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors duration-500">
+                          {isSubmitting ? "Sending..." : "Submit Query"}
+                          <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </span>
+                      </button>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>

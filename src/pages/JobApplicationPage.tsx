@@ -46,6 +46,8 @@ const JobApplicationPage = () => {
         }
       });
       
+      const result = await response.json();
+      
       if (response.ok) {
         setIsSubmitted(true);
         toast.success("Application submitted successfully!");
@@ -55,9 +57,11 @@ const JobApplicationPage = () => {
           navigate("/careers");
         }, 5000);
       } else {
-        toast.error("Failed to submit application. Please try again.");
+        console.error("Formspree Error:", result);
+        toast.error(result.error || "Failed to submit application. Please try again.");
       }
     } catch (error) {
+      console.error("Submission Error:", error);
       toast.error("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -115,7 +119,7 @@ const JobApplicationPage = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-12" encType="multipart/form-data">
+          <form onSubmit={handleSubmit} className="space-y-12">
             <input type="hidden" name="jobTitle" value={jobTitle} />
             {/* Personal Information */}
             <section className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-3xl p-8 sm:p-10 shadow-xl space-y-8">
