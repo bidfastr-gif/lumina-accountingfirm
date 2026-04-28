@@ -31,21 +31,37 @@ const JobApplicationPage = () => {
     ? slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     : "Job Opening";
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const formData = new FormData(e.currentTarget);
     
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Application submitted successfully!");
-    
-    // Redirect after 3 seconds
-    setTimeout(() => {
-      navigate("/careers");
-    }, 5000);
+    try {
+      const response = await fetch("https://formspree.io/f/mvzdjlde", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast.success("Application submitted successfully!");
+        
+        // Redirect after 5 seconds
+        setTimeout(() => {
+          navigate("/careers");
+        }, 5000);
+      } else {
+        toast.error("Failed to submit application. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -99,7 +115,8 @@ const JobApplicationPage = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-12">
+          <form onSubmit={handleSubmit} className="space-y-12" encType="multipart/form-data">
+            <input type="hidden" name="jobTitle" value={jobTitle} />
             {/* Personal Information */}
             <section className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-3xl p-8 sm:p-10 shadow-xl space-y-8">
               <div className="flex items-center gap-4 border-b border-gold/10 pb-6 mb-8">
@@ -113,7 +130,7 @@ const JobApplicationPage = () => {
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Full Name *</label>
                   <div className="relative">
-                    <Input required placeholder="John Doe" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                    <Input name="name" required placeholder="John Doe" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                   </div>
                 </div>
@@ -121,7 +138,7 @@ const JobApplicationPage = () => {
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Email Address *</label>
                   <div className="relative">
-                    <Input required type="email" placeholder="john@example.com" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                    <Input name="email" required type="email" placeholder="john@example.com" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                   </div>
                 </div>
@@ -129,7 +146,7 @@ const JobApplicationPage = () => {
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Phone Number *</label>
                   <div className="relative">
-                    <Input required type="tel" placeholder="+91 98765 43210" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                    <Input name="phone" required type="tel" placeholder="+91 98765 43210" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                   </div>
                 </div>
@@ -137,7 +154,7 @@ const JobApplicationPage = () => {
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">LinkedIn Profile</label>
                   <div className="relative">
-                    <Input placeholder="linkedin.com/in/johndoe" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                    <Input name="linkedin" placeholder="linkedin.com/in/johndoe" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                     <Linkedin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                   </div>
                 </div>
@@ -156,31 +173,32 @@ const JobApplicationPage = () => {
               <div className="grid sm:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Highest Qualification *</label>
-                  <Input required placeholder="e.g. CA Final, MBA, B.Com" className="h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                  <Input name="qualification" required placeholder="e.g. CA Final, MBA, B.Com" className="h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                 </div>
                 
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Year of Passing *</label>
-                  <Input required placeholder="e.g. 2023" className="h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                  <Input name="yearOfPassing" required placeholder="e.g. 2023" className="h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                 </div>
                 
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Total Experience (Years)</label>
                   <div className="relative">
-                    <Input type="number" placeholder="0" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                    <Input name="experience" type="number" placeholder="0" className="pl-11 h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                     <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Current/Last Organization</label>
-                  <Input placeholder="Company Name" className="h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
+                  <Input name="organization" placeholder="Company Name" className="h-14 rounded-xl border-border/40 focus:border-gold/50 bg-background/50" />
                 </div>
               </div>
 
               <div className="space-y-3 pt-4">
                 <label className="text-xs font-bold text-primary/60 uppercase tracking-widest ml-1">Cover Letter / Message</label>
                 <Textarea 
+                  name="message"
                   placeholder="Tell us why you're a great fit for this role..." 
                   className="min-h-[150px] rounded-2xl border-border/40 focus:border-gold/50 bg-background/50 p-6"
                 />
@@ -198,7 +216,7 @@ const JobApplicationPage = () => {
                   <p className="font-body text-sm text-foreground/50">PDF, DOCX or RTF (Max size 5MB)</p>
                 </div>
                 <div className="relative">
-                  <input required type="file" className="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.rtf" />
+                  <input name="resume" required type="file" className="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx,.rtf" />
                   <Button variant="outline" type="button" className="h-12 px-8 rounded-xl border-gold/30 text-gold hover:bg-gold hover:text-white transition-all duration-300">
                     Select File
                   </Button>
