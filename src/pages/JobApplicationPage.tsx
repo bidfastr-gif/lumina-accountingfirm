@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { 
@@ -26,74 +26,41 @@ const JobApplicationPage = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  useEffect(() => {
+    // Load Uploadcare Widget Script
+    const script = document.createElement("script");
+    script.src = "https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   // Format slug to title (e.g., accounts-assistant -> Accounts Assistant)
   const jobTitle = slug 
     ? slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     : "Job Opening";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    
-    if (!selectedFile) {
-      toast.error("Please upload your resume.");
-      return;
-    }
-
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // The widget handles the upload, we just need to submit the form to the iframe
     setIsSubmitting(true);
     
-    try {
-      // 1. Upload file to file.io (Keyless, free service)
-      const uploadData = new FormData();
-      uploadData.append("file", selectedFile);
-
-      const uploadResponse = await fetch("https://file.io", {
-        method: "POST",
-        body: uploadData,
-      });
-
-      const uploadResult = await uploadResponse.json();
-      
-      if (!uploadResponse.ok) throw new Error("Upload failed");
-
-      const fileLink = uploadResult.link;
-      
-      // 2. Prepare the form for submission
-      // Create or update a hidden input for the resume link
-      let linkInput = form.querySelector('input[name="resume_link"]') as HTMLInputElement;
-      if (!linkInput) {
-        linkInput = document.createElement("input");
-        linkInput.type = "hidden";
-        linkInput.name = "resume_link";
-        form.appendChild(linkInput);
-      }
-      linkInput.value = fileLink;
-
-      // Disable the file input so Formspree doesn't see it (and doesn't block it)
-      const fileInput = form.querySelector('input[name="resume"]') as HTMLInputElement;
-      if (fileInput) fileInput.disabled = true;
-
-      // 3. Submit the form to the hidden iframe
-      form.submit();
-
-      // 4. Show success UI after a short delay
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        toast.success("Application submitted successfully!");
-        
-        setTimeout(() => {
-          navigate("/careers");
-        }, 5000);
-      }, 1500);
-
-    } catch (error) {
-      console.error("Submission Error:", error);
-      toast.error("Failed to process resume. Please try again.");
+    // The link will be in the 'resume_link' hidden input created by the widget
+    const form = e.currentTarget;
+    
+    // Show success UI after a short delay
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setIsSubmitted(true);
+      toast.success("Application submitted successfully!");
+      
+      setTimeout(() => {
+        navigate("/careers");
+      }, 5000);
+    }, 2000);
   };
 
   if (isSubmitted) {
@@ -257,39 +224,34 @@ const JobApplicationPage = () => {
                   <p className="font-body text-sm text-foreground/50">PDF, DOCX or RTF (Max size 5MB)</p>
                 </div>
                 <div className="relative">
+                <div className="relative uploadcare-gold">
                   <input 
-                    name="resume" 
-                    required 
-                    type="file" 
-                    className="absolute inset-0 opacity-0 cursor-pointer z-20" 
-                    accept=".pdf,.doc,.docx,.rtf" 
-                    onChange={(e) => {
-                      if (e.target.files && e.target.files[0]) {
-                        setSelectedFile(e.target.files[0]);
-                      }
-                    }}
+                    type="hidden" 
+                    role="uploadcare-uploader" 
+                    name="resume_link" 
+                    data-public-key="demopublickey"
+                    data-tabs="file"
+                    data-clearable="true"
+                    required
                   />
-                  <Button variant="outline" type="button" className="h-12 px-8 rounded-xl border-gold/30 text-gold hover:bg-gold hover:text-white transition-all duration-300 relative z-10">
-                    {selectedFile ? "Change File" : "Select File"}
-                  </Button>
+                  <style>{`
+                    .uploadcare--widget {
+                      background: transparent !important;
+                      border: 1px solid rgba(193, 155, 84, 0.3) !important;
+                      border-radius: 12px !important;
+                      padding: 8px 16px !important;
+                      color: #C19B54 !important;
+                    }
+                    .uploadcare--widget__button_type_open {
+                      background: #C19B54 !important;
+                      color: white !important;
+                      border-radius: 8px !important;
+                    }
+                  `}</style>
                 </div>
-                {selectedFile && (
-                  <div className="flex items-center gap-2 px-4 py-2 bg-gold/5 rounded-lg border border-gold/20 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <CheckCircle2 className="w-3 h-3 text-gold" />
-                    <span className="font-body text-xs font-medium text-primary truncate max-w-[200px]">
-                      {selectedFile.name}
-                    </span>
-                    <button 
-                      type="button" 
-                      onClick={() => setSelectedFile(null)}
-                      className="ml-2 text-foreground/40 hover:text-red-500 transition-colors"
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
-                  </div>
-                )}
               </div>
-            </section>
+            </div>
+          </section>
 
             {/* Submit Button */}
             <div className="flex flex-col items-center pt-8">
