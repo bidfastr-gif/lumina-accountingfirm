@@ -33,52 +33,14 @@ const JobApplicationPage = () => {
     ? slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     : "Job Opening";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
+  const handleSubmit = (e: React.FormEvent) => {
     if (!selectedFile) {
+      e.preventDefault();
       toast.error("Please upload your resume.");
-      setIsSubmitting(false);
       return;
     }
-
-    const formData = new FormData(e.currentTarget);
-    
-    try {
-      const response = await fetch("https://formspree.io/f/mvzdjlde", {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      const result = await response.json();
-      
-      if (response.ok) {
-        setIsSubmitted(true);
-        toast.success("Application submitted successfully!");
-        
-        // Redirect after 5 seconds
-        setTimeout(() => {
-          navigate("/careers");
-        }, 5000);
-      } else {
-        console.error("Formspree Error:", result);
-        // Special message for 400 errors (likely unverified)
-        if (response.status === 400) {
-          toast.error("Form activation required. Please check your email or verify the formspree account.");
-        } else {
-          toast.error(result.error || "Failed to submit application. Please try again.");
-        }
-      }
-    } catch (error) {
-      console.error("Submission Error:", error);
-      toast.error("An error occurred. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Standard form submission will proceed after this
+    setIsSubmitting(true);
   };
 
   if (isSubmitted) {
@@ -132,7 +94,13 @@ const JobApplicationPage = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-12">
+          <form 
+            action="https://formspree.io/f/mvzdjlde" 
+            method="POST" 
+            encType="multipart/form-data"
+            onSubmit={handleSubmit}
+            className="space-y-12"
+          >
             <input type="hidden" name="jobTitle" value={jobTitle} />
             {/* Personal Information */}
             <section className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-3xl p-8 sm:p-10 shadow-xl space-y-8">
