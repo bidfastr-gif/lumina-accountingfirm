@@ -67,6 +67,10 @@ const JobApplicationPage = () => {
       // Remove the actual file from the form data to avoid Formspree's 400 error
       formData.delete("resume");
 
+      // Debug: Log the payload
+      console.log("Submitting to Formspree with link:", fileLink);
+      console.log("Form Data entries:", Array.from(formData.entries()));
+
       const response = await fetch("https://formspree.io/f/mvzdjlde", {
         method: "POST",
         body: formData,
@@ -74,6 +78,9 @@ const JobApplicationPage = () => {
           'Accept': 'application/json'
         }
       });
+      
+      const result = await response.json();
+      console.log("Formspree Response:", result);
       
       if (response.ok) {
         setIsSubmitted(true);
@@ -83,7 +90,6 @@ const JobApplicationPage = () => {
           navigate("/careers");
         }, 5000);
       } else {
-        const result = await response.json();
         toast.error(result.error || "Failed to submit application.");
       }
     } catch (error) {
