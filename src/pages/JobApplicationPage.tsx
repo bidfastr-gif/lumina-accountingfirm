@@ -35,6 +35,7 @@ const JobApplicationPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     
     if (!selectedFile) {
       toast.error("Please upload your resume.");
@@ -61,41 +62,38 @@ const JobApplicationPage = () => {
 
       const fileLink = `https://ucarecdn.com/${uploadResult.file}/`;
       
-      // 2. Send the link to Formspree
-      const formData = new FormData(e.currentTarget);
-      formData.set("resume_link", fileLink);
-      // Remove the actual file from the form data to avoid Formspree's 400 error
-      formData.delete("resume");
+      // 2. Prepare the form for submission
+      // Create or update a hidden input for the resume link
+      let linkInput = form.querySelector('input[name="resume_link"]') as HTMLInputElement;
+      if (!linkInput) {
+        linkInput = document.createElement("input");
+        linkInput.type = "hidden";
+        linkInput.name = "resume_link";
+        form.appendChild(linkInput);
+      }
+      linkInput.value = fileLink;
 
-      // Debug: Log the payload
-      console.log("Submitting to Formspree with link:", fileLink);
-      console.log("Form Data entries:", Array.from(formData.entries()));
+      // Disable the file input so Formspree doesn't see it (and doesn't block it)
+      const fileInput = form.querySelector('input[name="resume"]') as HTMLInputElement;
+      if (fileInput) fileInput.disabled = true;
 
-      const response = await fetch("https://formspree.io/f/mvzdjlde", {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      const result = await response.json();
-      console.log("Formspree Response:", result);
-      
-      if (response.ok) {
+      // 3. Submit the form to the hidden iframe
+      form.submit();
+
+      // 4. Show success UI after a short delay
+      setTimeout(() => {
+        setIsSubmitting(false);
         setIsSubmitted(true);
         toast.success("Application submitted successfully!");
         
         setTimeout(() => {
           navigate("/careers");
         }, 5000);
-      } else {
-        toast.error(result.error || "Failed to submit application.");
-      }
+      }, 1500);
+
     } catch (error) {
       console.error("Submission Error:", error);
       toast.error("Failed to process resume. Please try again.");
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -151,7 +149,13 @@ const JobApplicationPage = () => {
             </p>
           </div>
 
+          {/* Hidden iframe to handle the form submission without redirecting */}
+          <iframe name="hidden_iframe" id="hidden_iframe" className="hidden"></iframe>
+
           <form 
+            action="https://formspree.io/f/mvzdjlde"
+            method="POST"
+            target="hidden_iframe"
             onSubmit={handleSubmit}
             className="space-y-12"
           >
