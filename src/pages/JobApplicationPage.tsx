@@ -33,14 +33,45 @@ const JobApplicationPage = () => {
     ? slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     : "Job Opening";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
     if (!selectedFile) {
-      e.preventDefault();
       toast.error("Please upload your resume.");
       return;
     }
-    // Standard form submission will proceed after this
+
     setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://getform.io/f/hpto4k23wdh", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json",
+        },
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast.success("Application submitted successfully!");
+        
+        // Redirect after 5 seconds
+        setTimeout(() => {
+          navigate("/careers");
+        }, 5000);
+      } else {
+        const result = await response.json();
+        console.error("Getform Error:", result);
+        toast.error("Failed to submit application. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -95,9 +126,6 @@ const JobApplicationPage = () => {
           </div>
 
           <form 
-            action="https://formspree.io/f/mvzdjlde" 
-            method="POST" 
-            encType="multipart/form-data"
             onSubmit={handleSubmit}
             className="space-y-12"
           >
