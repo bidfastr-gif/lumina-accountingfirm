@@ -1,4 +1,6 @@
 import { useState } from "react";
+import OfficeSection from "@/components/OfficeSection";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Send,
   Phone,
