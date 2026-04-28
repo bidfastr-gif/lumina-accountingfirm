@@ -33,22 +33,65 @@ const JobApplicationPage = () => {
     ? slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     : "Job Opening";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
     if (!selectedFile) {
-      e.preventDefault();
       toast.error("Please upload your resume.");
       return;
     }
-    
-    // Check file size (5MB limit)
-    if (selectedFile.size > 5 * 1024 * 1024) {
-      e.preventDefault();
-      toast.error("File is too large. Max size is 5MB.");
-      return;
-    }
 
-    // Natural form submission will occur after this
     setIsSubmitting(true);
+    
+    try {
+      // 1. Upload file to Uploadcare (using a demo key for now, you should replace with yours)
+      const uploadData = new FormData();
+      uploadData.append("UPLOADCARE_PUB_KEY", "demopublickey");
+      uploadData.append("UPLOADCARE_STORE", "1");
+      uploadData.append("file", selectedFile);
+
+      const uploadResponse = await fetch("https://upload.uploadcare.com/base/", {
+        method: "POST",
+        body: uploadData,
+      });
+
+      const uploadResult = await uploadResponse.json();
+      
+      if (!uploadResponse.ok) throw new Error("Upload failed");
+
+      const fileLink = `https://ucarecdn.com/${uploadResult.file}/`;
+      
+      // 2. Send the link to Formspree
+      const formData = new FormData(e.currentTarget);
+      formData.set("resume_link", fileLink);
+      // Remove the actual file from the form data to avoid Formspree's 400 error
+      formData.delete("resume");
+
+      const response = await fetch("https://formspree.io/f/mvzdjlde", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast.success("Application submitted successfully!");
+        
+        setTimeout(() => {
+          navigate("/careers");
+        }, 5000);
+      } else {
+        const result = await response.json();
+        toast.error(result.error || "Failed to submit application.");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      toast.error("Failed to process resume. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -103,9 +146,6 @@ const JobApplicationPage = () => {
           </div>
 
           <form 
-            action="https://app.forminit.com/f/hpto4k23wdh"
-            method="POST"
-            encType="multipart/form-data"
             onSubmit={handleSubmit}
             className="space-y-12"
           >
