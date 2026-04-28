@@ -45,13 +45,11 @@ const JobApplicationPage = () => {
     setIsSubmitting(true);
     
     try {
-      // 1. Upload file to Uploadcare (using a demo key for now, you should replace with yours)
+      // 1. Upload file to file.io (Keyless, free service)
       const uploadData = new FormData();
-      uploadData.append("UPLOADCARE_PUB_KEY", "demopublickey");
-      uploadData.append("UPLOADCARE_STORE", "1");
       uploadData.append("file", selectedFile);
 
-      const uploadResponse = await fetch("https://upload.uploadcare.com/base/", {
+      const uploadResponse = await fetch("https://file.io", {
         method: "POST",
         body: uploadData,
       });
@@ -60,7 +58,7 @@ const JobApplicationPage = () => {
       
       if (!uploadResponse.ok) throw new Error("Upload failed");
 
-      const fileLink = `https://ucarecdn.com/${uploadResult.file}/`;
+      const fileLink = uploadResult.link;
       
       // 2. Prepare the form for submission
       // Create or update a hidden input for the resume link
