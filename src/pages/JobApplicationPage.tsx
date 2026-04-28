@@ -42,15 +42,29 @@ const JobApplicationPage = () => {
     }
 
     setIsSubmitting(true);
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData();
+    
+    // Capture all named inputs
+    const formElements = form.elements;
+    for (let i = 0; i < formElements.length; i++) {
+      const element = formElements[i] as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+      if (element.name) {
+        if (element.type === "file") {
+          const fileInput = element as HTMLInputElement;
+          if (fileInput.files && fileInput.files[0]) {
+            formData.append(element.name, fileInput.files[0]);
+          }
+        } else {
+          formData.append(element.name, element.value);
+        }
+      }
+    }
     
     try {
       const response = await fetch("https://getform.io/f/hpto4k23wdh", {
         method: "POST",
         body: formData,
-        headers: {
-          "Accept": "application/json",
-        },
       });
       
       if (response.ok) {
