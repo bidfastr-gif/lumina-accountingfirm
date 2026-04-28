@@ -136,7 +136,11 @@ const ContactPage = () => {
                     Submit Your <span className="text-gold">Query</span>
                   </h2>
 
-                  <form className="space-y-6">
+                  <form 
+                    action="https://formspree.io/f/xbdqvwpl" 
+                    method="POST"
+                    className="space-y-6"
+                  >
                     {/* Name & Email Row */}
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
@@ -145,6 +149,8 @@ const ContactPage = () => {
                         </label>
                         <input
                           type="text"
+                          name="name"
+                          required
                           className="w-full px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
                           placeholder="Full Name"
                         />
@@ -155,6 +161,8 @@ const ContactPage = () => {
                         </label>
                         <input
                           type="email"
+                          name="email"
+                          required
                           className="w-full px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
                           placeholder="your.email@example.com"
                         />
@@ -168,13 +176,17 @@ const ContactPage = () => {
                           Phone Number
                         </label>
                         <div className="flex gap-3">
-                          <select className="w-20 sm:w-24 px-2 sm:px-3 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-[12px] sm:text-sm text-foreground/75 cursor-pointer appearance-none">
+                          <select 
+                            name="countryCode"
+                            className="w-20 sm:w-24 px-2 sm:px-3 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-[12px] sm:text-sm text-foreground/75 cursor-pointer appearance-none"
+                          >
                             <option>+91</option>
                             <option>+1</option>
                             <option>+44</option>
                           </select>
                           <input
                             type="tel"
+                            name="phone"
                             className="flex-1 min-w-0 px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20"
                             placeholder="Phone Num"
                           />
@@ -185,10 +197,13 @@ const ContactPage = () => {
                           Query Category
                         </label>
                         <div className="relative">
-                          <select className="w-full px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-sm text-foreground/75 cursor-pointer appearance-none">
+                          <select 
+                            name="category"
+                            className="w-full px-5 sm:px-6 py-4 rounded-xl bg-background/50 border border-border/50 focus:border-gold outline-none transition-all font-body text-sm text-foreground/75 cursor-pointer appearance-none"
+                          >
                             <option value="">Choose Category</option>
                             {servicesData.map((service) => (
-                              <option key={service.slug} value={service.slug}>
+                              <option key={service.slug} value={service.name}>
                                 {service.name}
                               </option>
                             ))}
@@ -204,12 +219,16 @@ const ContactPage = () => {
                         Your Query
                       </label>
                       <textarea
+                        name="query"
                         className="w-full px-6 py-5 rounded-xl bg-background/50 border border-border/50 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all font-body text-sm placeholder:text-foreground/20 min-h-[160px] resize-none"
                         placeholder="Write your query here..."
                       />
                     </div>
 
-                    <button className="w-full group relative py-5 bg-primary overflow-hidden rounded-xl shadow-2xl transition-all duration-500 hover:shadow-gold/30 mt-4">
+                    <button 
+                      type="submit"
+                      className="w-full group relative py-5 bg-primary overflow-hidden rounded-xl shadow-2xl transition-all duration-500 hover:shadow-gold/30 mt-4"
+                    >
                       <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                       <span className="relative z-10 flex items-center justify-center gap-3 font-body font-bold text-sm uppercase tracking-[0.2em] text-white group-hover:text-primary transition-colors duration-500">
                         Submit Query
