@@ -39,7 +39,15 @@ const JobApplicationPage = () => {
       toast.error("Please upload your resume.");
       return;
     }
-    // Standard form submission will proceed and redirect to Forminit
+    
+    // Check file size (5MB limit)
+    if (selectedFile.size > 5 * 1024 * 1024) {
+      e.preventDefault();
+      toast.error("File is too large. Max size is 5MB.");
+      return;
+    }
+
+    // Natural form submission will occur after this
     setIsSubmitting(true);
   };
 
