@@ -33,59 +33,27 @@ const JobApplicationPage = () => {
     ? slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     : "Job Opening";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
+  const handleSubmit = (e: React.FormEvent) => {
     if (!selectedFile) {
+      e.preventDefault();
       toast.error("Please upload your resume.");
       return;
     }
 
     setIsSubmitting(true);
-    const form = e.currentTarget;
-    const formData = new FormData();
     
-    // Capture all named inputs
-    const formElements = form.elements;
-    for (let i = 0; i < formElements.length; i++) {
-      const element = formElements[i] as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
-      if (element.name) {
-        if (element.type === "file") {
-          const fileInput = element as HTMLInputElement;
-          if (fileInput.files && fileInput.files[0]) {
-            formData.append(element.name, fileInput.files[0]);
-          }
-        } else {
-          formData.append(element.name, element.value);
-        }
-      }
-    }
-    
-    try {
-      const response = await fetch("https://getform.io/f/hpto4k23wdh", {
-        method: "POST",
-        body: formData,
-      });
-      
-      if (response.ok) {
-        setIsSubmitted(true);
-        toast.success("Application submitted successfully!");
-        
-        // Redirect after 5 seconds
-        setTimeout(() => {
-          navigate("/careers");
-        }, 5000);
-      } else {
-        const result = await response.json();
-        console.error("Getform Error:", result);
-        toast.error("Failed to submit application. Please try again.");
-      }
-    } catch (error) {
-      console.error("Submission Error:", error);
-      toast.error("An error occurred. Please try again later.");
-    } finally {
+    // With the hidden iframe trick, we show the success UI after a brief delay
+    // while the standard form submission happens in the background
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setIsSubmitted(true);
+      toast.success("Application submitted successfully!");
+      
+      // Redirect after 5 seconds
+      setTimeout(() => {
+        navigate("/careers");
+      }, 5000);
+    }, 2000);
   };
 
   if (isSubmitted) {
@@ -139,7 +107,14 @@ const JobApplicationPage = () => {
             </p>
           </div>
 
+          {/* Hidden iframe to handle form submission without redirect */}
+          <iframe name="hidden_iframe" id="hidden_iframe" style={{ display: "none" }}></iframe>
+
           <form 
+            action="https://getform.io/f/hpto4k23wdh"
+            method="POST"
+            target="hidden_iframe"
+            encType="multipart/form-data"
             onSubmit={handleSubmit}
             className="space-y-12"
           >
