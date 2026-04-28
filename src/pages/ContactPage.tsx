@@ -126,7 +126,7 @@ const ContactPage = () => {
 
             {/* Right Column: Inquiry Form */}
             <div
-              className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+              className={`lg:pt-40 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
             >
               <div className="bg-card rounded-3xl p-8 sm:p-12 lg:p-14 border border-border/40 shadow-2xl relative overflow-hidden backdrop-blur-sm bg-card/80">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[80px] rounded-full" />

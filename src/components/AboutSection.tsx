@@ -4,9 +4,6 @@ import {
   Users,
   Building2,
   Calendar,
-  Star,
-  CheckCircle,
-  ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Counter from "./Counter";
@@ -38,18 +35,10 @@ const stats = [
   },
 ];
 
-const values = [
-  { icon: Star, title: "Excellence in Standards" },
-  { icon: CheckCircle, title: "Seamless Functions" },
-  { icon: Users, title: "Accessibility" },
-  { icon: Award, title: "Independence & Integrity" },
-  { icon: Calendar, title: "Training & Commitment" },
-  { icon: Building2, title: "Cultural Diversity" },
-];
+
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation();
 
   return (
     <section
@@ -158,39 +147,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Values */}
-        <div ref={ref2} className="mt-16 sm:mt-24 lg:mt-32">
-          <div
-            className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-          >
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 sm:w-10 h-px bg-gold/40" />
-              <span className="font-body text-[10px] sm:text-[11px] font-semibold text-gold/80 uppercase tracking-[0.25em]">
-                Our Core Values
-              </span>
-              <div className="w-8 sm:w-10 h-px bg-gold/40" />
-            </div>
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-primary px-4 sm:px-0">
-              What Drives Us Forward
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 max-w-lg sm:max-w-none mx-auto sm:mx-0">
-            {values.map((value, i) => (
-              <div
-                key={value.title}
-                className={`group card-premium p-6 text-center transition-all duration-700 ${isVisible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <div className="w-11 h-11 rounded-xl bg-primary group-hover:bg-gold flex items-center justify-center mx-auto mb-4 transition-all duration-500 group-hover:shadow-gold">
-                  <value.icon className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <p className="font-body text-[13px] font-medium text-foreground/65 group-hover:text-primary transition-colors duration-300">
-                  {value.title}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

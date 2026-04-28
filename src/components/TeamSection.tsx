@@ -60,9 +60,7 @@ const TeamSection = () => {
             </span>
             <div className="w-10 h-px bg-gold/40" />
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            Our Partners
-          </h2>
+
           <p className="font-body text-foreground/45 max-w-lg mx-auto text-[15px] leading-relaxed">
             A team of seasoned professionals with decades of combined experience
             driving excellence.

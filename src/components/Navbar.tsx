@@ -36,35 +36,26 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-          showScrolledStyle
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${showScrolledStyle
             ? "py-2.5 glass-strong shadow-card border-b border-border/30"
             : "py-5 bg-transparent border-none"
-        }`}
+          }`}
       >
         <div className="container flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 cursor-pointer group">
-            <div className="w-8 h-8 bg-[#6AA84F] rounded-full flex items-center justify-center overflow-hidden">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 text-white"
-              >
-                <path
-                  d="M12 2C12 2 12 6 8 10C4 14 4 18 8 20C12 22 16 20 20 16C24 12 22 8 20 6C18 4 14 2 12 2Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M12 2C12 2 12 6 16 10C20 14 20 18 16 20C12 22 8 20 4 16C0 12 2 8 4 6C6 4 10 2 12 2Z"
-                  fill="currentColor"
-                  fillOpacity="0.3"
-                />
-              </svg>
+            <img
+              src="/images/ca_india_logo.jpeg"
+              alt="CA India Logo"
+              className="h-10 w-auto object-contain"
+            />
+            <div className="flex flex-col">
+              <span className={`font-heading text-xl font-bold tracking-tight transition-colors duration-500 ${showScrolledStyle ? "text-primary" : "text-white"}`}>
+                SABAPATHY & DHANDAPANI
+              </span>
+              <span className={`font-body text-[9px] tracking-[0.25em] uppercase font-medium transition-colors duration-500 ${showScrolledStyle ? "text-primary" : "text-white"}`}>
+                Chartered Accountants
+              </span>
             </div>
-            <span className={`font-heading text-xl font-bold tracking-tight transition-colors duration-500 ${showScrolledStyle ? "text-primary" : "text-white"}`}>
-              SABAPATHY & DHANDAPANI
-            </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
@@ -73,12 +64,10 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={({ isActive }) =>
-                  `relative font-body text-[11px] font-bold px-5 py-2.5 transition-all duration-500 uppercase tracking-widest ${
-                    isActive
+                  `relative font-body text-[11px] font-bold px-5 py-2.5 transition-all duration-500 uppercase tracking-widest ${isActive
                     ? `${showScrolledStyle ? "text-[#6AA84F]" : "text-[#9ADE7B] drop-shadow-[0_0_8px_rgba(154,222,123,0.4)]"} after:w-4`
                     : `${showScrolledStyle ? "text-primary" : "text-white"} hover:text-[#9ADE7B] hover:drop-shadow-[0_0_8px_rgba(154,222,123,0.4)] hover:after:w-4`
-                  } after:content-[''] after:absolute after:bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-[#6AA84F] after:transition-all after:duration-500 ${
-                    !isActive ? "after:w-0" : ""
+                  } after:content-[''] after:absolute after:bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-[#6AA84F] after:transition-all after:duration-500 ${!isActive ? "after:w-0" : ""
                   }`
                 }
               >
@@ -118,10 +107,9 @@ const Navbar = () => {
                   key={item.name}
                   to={item.path}
                   className={({ isActive }) =>
-                    `block w-full text-center py-3 px-6 rounded-xl font-body text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
-                      isActive
-                        ? "bg-[#6AA84F]/10 text-[#6AA84F] border border-[#6AA84F]/20"
-                        : "text-primary/70 hover:text-[#6AA84F] hover:bg-[#6AA84F]/5"
+                    `block w-full text-center py-3 px-6 rounded-xl font-body text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${isActive
+                      ? "bg-[#6AA84F]/10 text-[#6AA84F] border border-[#6AA84F]/20"
+                      : "text-primary/70 hover:text-[#6AA84F] hover:bg-[#6AA84F]/5"
                     }`
                   }
                   style={{ animationDelay: `${i * 0.05}s` }}

@@ -118,15 +118,6 @@ const ServiceDetailPage = () => {
 
             {/* Advantages Section */}
             <section className="mb-16 sm:mb-24">
-              <div className="flex flex-col mb-10">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-[2px] bg-gold" />
-                  <span className="font-body text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Advantages</span>
-                </div>
-                <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary">
-                  Key <span className="text-gradient-gold">Advantages</span>
-                </h2>
-              </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                 {service.advantages.map((adv, idx) => (
                   <div

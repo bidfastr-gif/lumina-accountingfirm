@@ -50,9 +50,9 @@ const CTASection = () => {
             },
             {
               icon: MapPin,
-              title: "Head Office",
+              title: "Address",
               detail:
-                "New No.81, Old no.47, #139, Dr. Radhakrishnan Salai, Mylapore, Chennai - 600 004",
+                "FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS, (NEXT TO HOTEL SARAVANA BHAVAN) Dr. Radhakrishnan Salai, Mylapore,Chennai - 600 004",
               href: "#",
             },
           ].map((item) => (

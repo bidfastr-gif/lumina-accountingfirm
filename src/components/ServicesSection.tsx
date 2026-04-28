@@ -96,16 +96,10 @@ const servicesData = {
     },
   ],
   Advisory: [
-
     {
       icon: ClipboardCheck,
       name: "Due Diligence",
       desc: "In-depth financial and tax due diligence reviews for investment and acquisition decisions.",
-    },
-    {
-      icon: TrendingUp,
-      name: "Investment Advisory",
-      desc: "Personalized investment planning and advisory services to achieve long-term financial goals.",
     },
     {
       icon: Users,

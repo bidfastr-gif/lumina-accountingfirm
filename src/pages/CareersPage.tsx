@@ -105,7 +105,7 @@ const CareersPage = () => {
                         to={`/careers/${job.slug}`}
                         className="inline-flex items-center gap-2 px-6 sm:px-10 py-3 sm:py-4 bg-primary text-primary-foreground font-body font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-gold group-hover:bg-gold group-hover:text-primary transition-all duration-500 shadow-lg"
                       >
-                        Apply Now
+                        Learn More
                       </Link>
                     </div>
                   </div>
@@ -130,30 +130,7 @@ const CareersPage = () => {
             </p>
           </div>
 
-          {/* Careers Stats Band */}
-          <div className="mt-16 sm:mt-24 lg:mt-32 pt-12 sm:pt-20 border-t border-border/20">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12 text-center">
-              {[
-                { label: "Active Openings", value: 6, suffix: "" },
-                { label: "Expert Mentors", value: 9, suffix: "+" },
-                { label: "Legacy of Trust", value: 49, suffix: "+" },
-              ].map((stat) => (
-                <div key={stat.label} className="group px-4">
-                  <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 flex items-center justify-center gap-1">
-                    <Counter
-                      end={stat.value}
-                      trigger={isVisible}
-                      duration={2500}
-                    />
-                    <span className="text-gold">{stat.suffix}</span>
-                  </div>
-                  <div className="font-body text-xs lg:text-sm text-muted-foreground uppercase tracking-widest font-semibold group-hover:text-gold transition-colors duration-300">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

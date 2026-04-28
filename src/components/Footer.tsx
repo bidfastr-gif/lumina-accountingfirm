@@ -14,12 +14,21 @@ const Footer = () => (
     <div className="container relative z-10 py-16">
       <div className="grid md:grid-cols-3 gap-12">
         <div>
-          <h3 className="font-heading text-xl font-bold text-white tracking-[0.02em]">
-            SABAPATHY & DHANDAPANI
-          </h3>
-          <p className="font-body text-[9px] tracking-[0.3em] text-white uppercase mt-1 font-medium">
-            Chartered Accountants
-          </p>
+          <div className="flex items-center gap-3 mb-2">
+            <img
+              src="/images/ca_india_logo.jpeg"
+              alt="CA India Logo"
+              className="h-12 w-auto object-contain"
+            />
+            <div className="flex flex-col">
+              <h3 className="font-heading text-xl font-bold text-white tracking-[0.02em]">
+                SABAPATHY & DHANDAPANI
+              </h3>
+              <p className="font-body text-[9px] tracking-[0.3em] text-white uppercase mt-0.5 font-medium">
+                Chartered Accountants
+              </p>
+            </div>
+          </div>
           <div className="w-8 h-px bg-[#6AA84F] mt-5 mb-5" />
           <p className="font-body text-[13px] text-white/90 leading-[1.8]">
             Established with a vision to provide expert Audit, Assurance, Taxation and

@@ -10,6 +10,7 @@ import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import TeamPage from "@/pages/TeamPage";
 import CareersPage from "@/pages/CareersPage";
 import JobDetailsPage from "@/pages/JobDetailsPage";
+import JobApplicationPage from "@/pages/JobApplicationPage";
 import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/NotFound";
 import { ModalProvider } from "@/context/ModalContext";
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/team" element={<TeamPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/careers/:slug" element={<JobDetailsPage />} />
+              <Route path="/careers/:slug/apply" element={<JobApplicationPage />} />
               <Route path="/contact" element={<ContactPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

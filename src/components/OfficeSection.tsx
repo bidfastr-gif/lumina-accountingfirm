@@ -6,14 +6,14 @@ const offices = [
     type: "HEAD OFFICE",
     city: "Chennai",
     address:
-      "New No.81, Old no.47, #139, Dr. Radhakrishnan Salai, Mylapore, Chennai - 600 004",
+      "New No.81, Old no.47, Dr. Radhakrishnan Salai, Mylapore, Chennai - 600 004",
     tel: "044-35943060/47996581",
     mob: "+91 98400 67587",
     email: "sabapathyca@hotmail.com",
   },
   {
     type: "BRANCH OFFICE",
-    city: "Chennai (Branch)",
+    city: "Chennai",
     address:
       "Flat No.A-2, 2nd Floor, Nalanda Apartments, Door No. 2, 5th Street, Dr. Radhakrishnan Salai, Mylapore, Chennai - 600 004.",
     tel: "044-35943060/47996581",
