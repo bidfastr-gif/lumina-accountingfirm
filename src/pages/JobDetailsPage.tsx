@@ -57,7 +57,7 @@ const jobDetailsData: Record<string, JobDetail> = {
     eligibility: [
       "CA Intermediate - Passed both groups (preferred) or at least one group.",
       "Eligible to start articleship as per ICAI guidelines.",
-      "Strong commitment to the 3-year practical training period.",
+      "Strong commitment to the 2-year practical training period.",
     ],
     skills: [
       "Basic understanding of Accounting Standards and Auditing Practices.",
@@ -71,7 +71,7 @@ const jobDetailsData: Record<string, JobDetail> = {
       "Generous study leaves for CA Final examinations.",
       "Stipend as per firm policy exceeding ICAI minimums.",
     ],
-    workingHours: "As per firm policy and ICAI training guidelines.",
+    workingHours: "10:00 AM to 6:30 PM (Mon-Sat) as per firm policy and ICAI guidelines.",
   },
   "accounts-assistant": {
     title: "Accounts Assistant",
@@ -121,7 +121,7 @@ const jobDetailsData: Record<string, JobDetail> = {
       "Performance-based increments and yearly bonuses.",
       "Health insurance and standard corporate benefits.",
     ],
-    workingHours: "9:30 AM to 6:30 PM (Mon-Fri), 9:30 AM to 2:00 PM (Sat).",
+    workingHours: "10:00 AM to 6:30 PM (Mon-Sat).",
   },
   "accounts-manager": {
     title: "Accounts Manager",
@@ -172,8 +172,7 @@ const jobDetailsData: Record<string, JobDetail> = {
       "Opportunities for professional development and training.",
       "Comprehensive family health insurance and retirement benefits.",
     ],
-    workingHours:
-      "9:30 AM to 6:30 PM (Mon-Fri), Saturday as required for deadlines.",
+    workingHours: "10:00 AM to 6:30 PM (Mon-Sat).",
   },
   "assistant-manager-audit": {
     title: "Assistant Manager Audit",
@@ -223,8 +222,7 @@ const jobDetailsData: Record<string, JobDetail> = {
       "Continuing Professional Education (CPE) support.",
       "Performance-linked incentives and professional reimbursements.",
     ],
-    workingHours:
-      "Conventional office hours with flexibility during peak audit seasons.",
+    workingHours: "10:00 AM to 6:30 PM (Mon-Sat).",
   },
   "manager-audit": {
     title: "Manager Audit",
@@ -275,8 +273,7 @@ const jobDetailsData: Record<string, JobDetail> = {
       "Attendance at national/international professional conferences.",
       "Premium health insurance and executive benefits package.",
     ],
-    workingHours:
-      "Office hours (9:30 AM - 6:30 PM) with professional flexibility.",
+    workingHours: "10:00 AM to 6:30 PM (Mon-Sat).",
   },
   administration: {
     title: "Administration",
@@ -327,7 +324,7 @@ const jobDetailsData: Record<string, JobDetail> = {
       "Yearly bonuses and comprehensive medical coverage.",
       "Defined career growth within the operations department.",
     ],
-    workingHours: "9:00 AM to 6:00 PM (Mon-Sat).",
+    workingHours: "10:00 AM to 6:30 PM (Mon-Sat).",
   },
 };
 
@@ -487,8 +484,8 @@ const JobDetailsPage = () => {
               {/* CTA Section */}
               <div className="pt-8 sm:pt-12 pl-0 sm:pl-11 flex flex-col items-center">
                 <div className="w-full h-[1px] bg-gold/20 mb-12" />
-                <Link 
-                  to={`/careers/${slug}/apply`} 
+                <Link
+                  to={`/careers/${slug}/apply`}
                   className="w-full sm:w-auto"
                 >
                   <button className="bg-primary hover:bg-gold text-primary-foreground font-body font-bold text-sm px-10 sm:px-16 py-4 sm:py-5 rounded-xl shadow-2xl transition-all duration-500 transform hover:-translate-y-1 hover:shadow-gold uppercase tracking-[0.15em] sm:tracking-[0.2em] w-full">

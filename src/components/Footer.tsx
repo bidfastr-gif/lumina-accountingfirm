@@ -71,7 +71,7 @@ const Footer = () => (
                 Address
               </p>
               <p className="text-white">
-                FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS,<br />(NEXT TO HOTEL SARAVANA BHAVAN)   <br />
+                Flat No. 2A, 2nd Floor, Nalanda Apartments,<br />(Next to Hotel Saravana Bhavan)   <br />
                 Dr. Radhakrishnan Salai, Mylapore,
                 <br />
                 Chennai - 600 004
@@ -99,6 +99,12 @@ const Footer = () => (
               >
                 sabapathyca@hotmail.com
               </a>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[#6AA84F] font-semibold text-[11px] uppercase tracking-wider">
+                Working Hours
+              </p>
+              <p className="text-white">Mon - Sat: 10:00 AM - 6:30 PM</p>
             </div>
           </div>
         </div>

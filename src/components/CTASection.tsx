@@ -52,7 +52,7 @@ const CTASection = () => {
               icon: MapPin,
               title: "Address",
               detail:
-                "FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS, (NEXT TO HOTEL SARAVANA BHAVAN) Dr. Radhakrishnan Salai, Mylapore,Chennai - 600 004",
+                "Flat No. 2A, 2nd Floor, Nalanda Apartments, (Next to Hotel Saravana Bhavan) Dr. Radhakrishnan Salai, Mylapore, Chennai - 600 004",
               href: "#",
             },
           ].map((item) => (

@@ -878,4 +878,170 @@ export const servicesData: ServiceDetail[] = [
       "Long-term partnership approach focused on measurable outcomes",
     ],
   },
+  {
+    slug: "ind-as-convergence",
+    icon: ArrowRightLeft,
+    name: "Ind AS Convergence",
+    tagline: "Harmonizing Financial Reporting with Global Standards",
+    desc: "Expert assistance in transitioning to Indian Accounting Standards (Ind AS) from existing accounting frameworks.",
+    overview: [
+      "The adoption of Indian Accounting Standards (Ind AS) represents a significant shift in financial reporting, bringing Indian practices in line with International Financial Reporting Standards (IFRS). At Sabapathy & Dhandapani, we provide comprehensive support to businesses navigating this complex transition.",
+      "Our Ind AS convergence services go beyond mere accounting adjustments. We help organizations understand the impact of Ind AS on their financial statements, business processes, systems, and key performance indicators. Our team of experts provides technical guidance, impact assessments, and hands-on implementation support.",
+      "From identifying GAAP differences and preparing opening balance sheets to drafting Ind AS-compliant financial statements and providing training to your finance teams, we ensure a smooth and accurate transition to the new reporting framework.",
+    ],
+    advantages: [
+      {
+        title: "Global Comparability",
+        description:
+          "Financial statements prepared under Ind AS are comparable with global benchmarks, enhancing credibility with international investors and lenders.",
+      },
+      {
+        title: "Impact Assessment",
+        description:
+          "Detailed analysis of how Ind AS adoption will affect your reported profits, net worth, and key financial ratios.",
+      },
+      {
+        title: "Technical Expertise",
+        description:
+          "Access to deep technical knowledge on complex Ind AS areas such as financial instruments, revenue recognition, and leases.",
+      },
+      {
+        title: "System Readiness",
+        description:
+          "Guidance on modifying your accounting systems and internal controls to capture data required for Ind AS disclosures.",
+      },
+      {
+        title: "Training & Capability",
+        description:
+          "Customized training programs to equip your finance and management teams with Ind AS knowledge.",
+      },
+      {
+        title: "Smooth Transition",
+        description:
+          "Structured methodology ensuring all transition-date adjustments are accurately identified and documented.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Diagnostic Review",
+        description:
+          "High-level assessment of the differences between your current accounting framework and Ind AS.",
+      },
+      {
+        step: 2,
+        title: "Impact Analysis",
+        description:
+          "Quantified analysis of GAAP differences and their impact on financial performance and position.",
+      },
+      {
+        step: 3,
+        title: "Transition Preparation",
+        description:
+          "Preparation of Ind AS-compliant accounting policies and the opening Ind AS balance sheet.",
+      },
+      {
+        step: 4,
+        title: "Implementation Support",
+        description:
+          "Assistance in preparing first-time adoption disclosures and draft Ind AS financial statements.",
+      },
+      {
+        step: 5,
+        title: "Post-Implementation Review",
+        description:
+          "Ongoing support for complex Ind AS accounting queries and updates on new standard developments.",
+      },
+    ],
+    whyChooseUs: [
+      "Deep technical expertise in IFRS and Ind AS frameworks",
+      "Experience in complex Ind AS implementations across sectors",
+      "Practical, business-oriented approach to accounting transitions",
+      "Integrated services covering accounting, tax, and systems",
+      "Continuous knowledge sharing and regulatory updates",
+    ],
+  },
+  {
+    slug: "book-keeping",
+    icon: BarChart3,
+    name: "Book keeping",
+    tagline: "Accurate Records, Reliable Insights",
+    desc: "Comprehensive accounting and book keeping services to maintain accurate financial records and ensure regulatory compliance.",
+    overview: [
+      "Accurate and timely book keeping is the foundation of sound financial management and informed decision-making. At Sabapathy & Dhandapani, we offer professional book keeping services that allow you to focus on your core business while we ensure your financial records are meticulously maintained.",
+      "Our services cover the entire accounting lifecycle, from transaction recording and bank reconciliations to maintaining statutory registers and preparing periodic financial reports. We utilize modern cloud-based accounting software to provide real-time visibility into your financial position.",
+      "Whether you are a startup needing a scalable accounting setup or an established business looking to outsource your finance function, our team provides reliable, secure, and compliant book keeping solutions tailored to your specific requirements.",
+    ],
+    advantages: [
+      {
+        title: "Accurate Records",
+        description:
+          "Ensure every transaction is correctly categorized and recorded in accordance with applicable accounting standards.",
+      },
+      {
+        title: "Real-time Visibility",
+        description:
+          "Cloud-based accounting providing you with up-to-date information on cash flows, receivables, and payables.",
+      },
+      {
+        title: "Compliance Ready",
+        description:
+          "Meticulous record-keeping that makes statutory audits and tax filings faster, easier, and less stressful.",
+      },
+      {
+        title: "Cost Efficiency",
+        description:
+          "Access to professional accounting expertise without the overhead of maintaining a full-time in-house finance team.",
+      },
+      {
+        title: "Scalable Solutions",
+        description:
+          "Accounting services that grow with your business, from basic book keeping to complex financial reporting.",
+      },
+      {
+        title: "Data Security",
+        description:
+          "Robust data protection measures and secure cloud storage ensuring your financial information remains confidential.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Setup & Integration",
+        description:
+          "Designing the chart of accounts and setting up accounting software integrated with your business processes.",
+      },
+      {
+        step: 2,
+        title: "Transaction Recording",
+        description:
+          "Regular recording of purchase invoices, sales receipts, expenses, and bank transactions.",
+      },
+      {
+        step: 3,
+        title: "Reconciliation",
+        description:
+          "Periodic reconciliation of bank statements, credit cards, and major vendor/customer accounts.",
+      },
+      {
+        step: 4,
+        title: "Financial Reporting",
+        description:
+          "Preparation of monthly or quarterly P&L statements, balance sheets, and cash flow reports.",
+      },
+      {
+        step: 5,
+        title: "Compliance Review",
+        description:
+          "Ensuring all records support your GST, TDS, and other statutory filing requirements.",
+      },
+    ],
+    whyChooseUs: [
+      "Professional accountants with deep expertise in various accounting platforms",
+      "Rigorous quality control and multi-level review of financial records",
+      "Timely and accurate delivery of financial reports",
+      "Proactive communication and insights into your financial health",
+      "Scalable and cost-effective outsourcing models",
+    ],
+  },
 ];

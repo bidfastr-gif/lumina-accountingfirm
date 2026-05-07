@@ -25,6 +25,7 @@ const categories = [
   "Taxation",
   "Corporate & Legal",
   "Advisory",
+  "Accounting",
 ];
 
 const servicesData = {
@@ -75,19 +76,9 @@ const servicesData = {
       desc: "Strategic advisory and compliance support for corporate restructuring, mergers, and acquisitions.",
     },
     {
-      icon: Landmark,
-      name: "FEMA Advisory",
-      desc: "Expert guidance on foreign exchange regulations, FDI compliance, and outward investment advisory.",
-    },
-    {
       icon: ShieldCheck,
       name: "Compliance Services",
       desc: "Holistic regulatory compliance solutions across various corporate and commercial laws.",
-    },
-    {
-      icon: Users,
-      name: "Start-up Advisory",
-      desc: "End-to-end support for new ventures, from entity selection and registration to regulatory compliance.",
     },
     {
       icon: FileCheck,
@@ -97,6 +88,16 @@ const servicesData = {
   ],
   Advisory: [
     {
+      icon: Landmark,
+      name: "FEMA Advisory",
+      desc: "Expert guidance on foreign exchange regulations, FDI compliance, and outward investment advisory.",
+    },
+    {
+      icon: Users,
+      name: "Start-up Advisory",
+      desc: "End-to-end support for new ventures, from entity selection and registration to regulatory compliance.",
+    },
+    {
       icon: ClipboardCheck,
       name: "Due Diligence",
       desc: "In-depth financial and tax due diligence reviews for investment and acquisition decisions.",
@@ -105,6 +106,18 @@ const servicesData = {
       icon: Users,
       name: "Business Consulting",
       desc: "Strategic business consulting to drive growth, efficiency, and organizational excellence.",
+    },
+  ],
+  Accounting: [
+    {
+      icon: ArrowRightLeft,
+      name: "Ind AS Convergence",
+      desc: "Expert assistance in transitioning to Indian Accounting Standards (Ind AS) from existing accounting frameworks.",
+    },
+    {
+      icon: BarChart3,
+      name: "Book keeping",
+      desc: "Comprehensive accounting and book keeping services to maintain accurate financial records and ensure regulatory compliance.",
     },
   ],
 };

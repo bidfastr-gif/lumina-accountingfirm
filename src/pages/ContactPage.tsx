@@ -91,13 +91,13 @@ const ContactPage = () => {
                         Visit Us
                       </h3>
                       <p className="font-body text-sm sm:text-base text-foreground/55 leading-relaxed">
-                        FLAT NO.2A, 2ND FLOOR, NALANDA APARTMENTS,<br />(NEXT TO HOTEL SARAVANA BHAVAN)   <br />
+                        Flat No. 2A, 2nd Floor, Nalanda Apartments,<br />(Next to Hotel Saravana Bhavan)   <br />
                         Dr. Radhakrishnan Salai, Mylapore,
                         <br />
                         Chennai - 600 004
                       </p>
                       <p className="font-body text-[11px] text-gold/60 mt-4 uppercase tracking-widest font-bold">
-                        Open Monday - Saturday
+                        Mon - Sat: 10:00 AM - 6:30 PM
                       </p>
                     </div>
                   </div>
